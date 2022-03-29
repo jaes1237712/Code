@@ -190,7 +190,10 @@ int main()
             }
         }
         if(flag)
+        {
             std::cout<<"END:"<<sum()<<'\n';
+            return 0;
+        }
         while(matrix[x][y]!=0) 
         {
             seed = (seed+1)%16;
@@ -238,4 +241,5 @@ int main()
             std::cout << '\n';
         }
     }
+    return 0;
 }
