@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.integrate as integral
+import math
  
 f = lambda x : np.sqrt((1-2*x)/(2*x*(1-x)))
 lb, ub = 0, 0.5
@@ -18,3 +19,9 @@ plt.xlabel(r'$\tau$')
 plt.grid(True, linestyle='--', which='major')
 plt.savefig("test.png")
 plt.show()
+
+def convoluted_BreitWigner(E, M, Gamma, sigma):
+    value = 0.
+    f = lambda x: math.exp(-x**2/(2*sigma**2))/(((E-x)**2-M**2)**2+(M*Gamma)**2)
+    value = integrate.quad(f, -np.inf, np.inf,epsabs=1E-10,epsrel=1E-10)[0]
+    return value
