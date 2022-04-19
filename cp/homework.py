@@ -1,18 +1,44 @@
-import math as mp
-import scipy.integrate as integrate
-#prob,err = integrate.quad(func,-n,n,epsabs=1E-10,epsrel=1E-10, args=(1))
+import numpy as np
+L_0 = 1
+k = 100
+m_1 = 0.5
+m_2 = 1.0
 
-def func(x,E,M,Gamma,sigma):
-    temp = E-x
-    return mp.exp((-1*(mp.pow(x,2)))/(2*(mp.pow(sigma,2))))/(mp.pow((mp.pow(temp,2)-mp.pow(M,2)),2)+mp.pow(M*Gamma,2))
-
-def convoluted_BreitWigner(E, M, Gamma, sigma):
-    value = 0.
-    ### START YOUR CODE HERE ###
-    value = integrate.quad(func, -3*sigma, 3*sigma, epsabs=1E-10,epsrel=1E-10,args=(E,M,Gamma,sigma))[0]
-    #### END YOUR CODE HERE ####
+def acceleration(position):
+    x1 = position[0]
+    y1 = position[1]
+    x2 = position[2]
+    y2 = position[3]
+    L = np.sqrt((x2-x1)**2+(y1-y2)**2)
+    value = np.zeros(4)
+    value[0] = (k/m_1)*(L-L_0)*((x2-x1)/L)
+    value[1] = (k/m_1)*(L-L_0)*((y2-y1)/L)
+    value[2] = (k/m_2)*(L-L_0)*((x1-x2)/L)
+    value[3] = (k/m_2)*(L-L_0)*((y1-y2)/L)
     return value
 
-# Test point E=+2.8562, M=+2.3097, Gamma=+0.3054, sigma=+0.4376
-print(convoluted_BreitWigner(+2.8562,+2.3097,+0.3054,+0.4376))
-
+def velocity_change(v,a,dt):
+    temp = v
+    for i in range(4):
+        temp[i] += a[i]*dt
+    return temp
+def positions_change(x,v,dt):
+    temp = x 
+    for i in range(4):
+        temp[i] += v[i]*dt
+    return temp
+    
+def twobody_positions(x1, y1, x2, y2, deltat):
+    positions = np.array([x1,y1,x2,y2])
+    ### START YOUR CODE HERE ###
+    a = acceleration(positions)
+    v = np.zeros(4)
+    dt = 1E-3
+    t = 0
+    while t<=deltat:
+        positions = positions_change(positions, v, dt)
+        v = velocity_change(v,a,dt)
+        a = acceleration(positions)
+        t += dt
+    #### END YOUR CODE HERE ####
+    return positions
