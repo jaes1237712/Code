@@ -1,15 +1,21 @@
-import math as m 
-def f(t,y): 
-    return y
+import numpy as np
 
-t, y = 0., 1.
-h = 1E-4
-while t<=1-h:
-    k1 = f(t,y)
-    k2 = f(t+h/2,y+(h/2)*k1)
-    k3 = f(t+h/2,y+(h/2)*k2)
-    k4 = f(t+h, y+h*k3)  
-    y += h*(k1+2*k2+2*k3+k4)/6
-    t += h
-print("VALUE:",y)
-print("diff:",y-m.exp(t))
+m, g, R = 1., 9.8, 1.
+t, h = 0., 0.001
+y = np.array([np.pi*0.9999,0.])
+
+def f(t,y):     
+    theta   = y[0] 
+    thetap  = y[1]
+    thetapp = -g/R*np.sin(theta)
+    return np.array([thetap,thetapp])
+
+while t<8.:        
+    for step in range(100):
+        k1  = f(t, y)
+        y  += h*k1
+        t  += h    
+    
+    theta  = y[0]
+    thetap = y[1]   
+    print('At %.2f sec : (%+14.10f, %+14.10f)' % (t, theta, thetap))
