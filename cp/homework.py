@@ -1,44 +1,56 @@
 import numpy as np
-L_0 = 1
-k = 100
-m_1 = 0.5
-m_2 = 1.0
+import math 
+from scipy.integrate import solve_ivp
 
-def acceleration(position):
-    x1 = position[0]
-    y1 = position[1]
-    x2 = position[2]
-    y2 = position[3]
-    L = np.sqrt((x2-x1)**2+(y1-y2)**2)
-    value = np.zeros(4)
-    value[0] = (k/m_1)*(L-L_0)*((x2-x1)/L)
-    value[1] = (k/m_1)*(L-L_0)*((y2-y1)/L)
-    value[2] = (k/m_2)*(L-L_0)*((x1-x2)/L)
-    value[3] = (k/m_2)*(L-L_0)*((y1-y2)/L)
+# in the order of [mass, x, y, vx, vy]
+init_data = np.array([[0.362, +0.380, -1.954, -2.364, +0.461],
+                      [0.168, +0.032, +0.631, +0.233, -0.608],
+                      [0.413, +0.280, -0.095, -0.672, -0.369],
+                      [0.209, -1.669, +0.116, -1.965, +0.237],
+                      [0.172, +0.376, +0.673, -0.370, +0.723],
+                      [0.322, -0.583, +0.355, -0.405, +0.831],
+                      [0.289, -0.619, -0.960, -0.525, -1.366],
+                      [0.108, +0.626, -1.931, +0.276, +1.698],
+                      [0.491, +0.499, +0.217, -1.237, +0.084],
+                      [0.325, +0.781, +1.452, -0.295, -0.827]])
+positions = init_data
+who = 0
+def f(t,pos):
+    [m,x,y,vx,vy] = pos.copy()
+    ax = 0
+    ay = 0
+    for k in range(10):
+        if k==who:
+            continue
+        [mj,xj,yj,vxj,vyj] = positions[k].copy()
+        R = math.sqrt((xj-x)**2+(yj-y)**2)
+        ax += (mj/R**2)*(xj-x)/R
+        ay += (mj/R**2)*(yj-y)/R
+    value = [m,vx,vy,ax,ay]
     return value
 
-def velocity_change(v,a,dt):
-    temp = v
-    for i in range(4):
-        temp[i] += a[i]*dt
-    return temp
-def positions_change(x,v,dt):
-    temp = x 
-    for i in range(4):
-        temp[i] += v[i]*dt
-    return temp
-    
-def twobody_positions(x1, y1, x2, y2, deltat):
-    positions = np.array([x1,y1,x2,y2])
+
+def multibody_positions(deltat):
+    global positions,who
+    positions = init_data
     ### START YOUR CODE HERE ###
-    a = acceleration(positions)
-    v = np.zeros(4)
-    dt = 1E-3
+    dt = deltat/1000
     t = 0
-    while t<=deltat:
-        positions = positions_change(positions, v, dt)
-        v = velocity_change(v,a,dt)
-        a = acceleration(positions)
+    while t<deltat:
+        pos = positions.copy()
+        for i in range(10):
+            who = i 
+            sol = solve_ivp(f, [t,t+dt], positions[i])
+            pos[i] = sol.y[:,-1]
+        positions = pos
         t += dt
     #### END YOUR CODE HERE ####
-    return positions
+    pos = np.array([positions[0][1]])
+    for i in range(10):
+        if i!=0:
+            pos = np.append(pos,positions[i][1])
+    for i in range(10):
+        pos = np.append(pos,positions[i][2])
+    return pos
+    
+print(multibody_positions(0.099701))
