@@ -1,5 +1,5 @@
-import numpy as np
-import math 
+import math
+import numpy as np 
 from scipy.integrate import solve_ivp
 
 # in the order of [mass, x, y, vx, vy]
@@ -13,44 +13,48 @@ init_data = np.array([[0.362, +0.380, -1.954, -2.364, +0.461],
                       [0.108, +0.626, -1.931, +0.276, +1.698],
                       [0.491, +0.499, +0.217, -1.237, +0.084],
                       [0.325, +0.781, +1.452, -0.295, -0.827]])
-positions = init_data
-who = 0
-def f(t,pos):
-    [m,x,y,vx,vy] = pos.copy()
-    ax = 0
-    ay = 0
-    for k in range(10):
-        if k==who:
-            continue
-        [mj,xj,yj,vxj,vyj] = positions[k].copy()
-        R = math.sqrt((xj-x)**2+(yj-y)**2)
-        ax += (mj/R**2)*(xj-x)/R
-        ay += (mj/R**2)*(yj-y)/R
-    value = [m,vx,vy,ax,ay]
-    return value
 
+positions = np.zeros(40)    # [x,y,vx,vy]
+for i in range(10):
+    positions[i] = init_data[i][1]
+for i in range(10):
+    positions[10+i] = init_data[i][2]
+for i in range(10):
+    positions[20+i] = init_data[i][3]
+for i in range(10):
+    positions[30+i] = init_data[i][4]
+
+def f(t,pos):
+    v = pos[20:40]      # [vx,vy]
+
+    a = np.zeros(20)    
+    for i in range(10): # a = [ax,0]
+        ax = 0
+        mi,xi,yi = init_data[i][0],positions[i],positions[i+10] 
+        for j in range(10):
+            if j==i:
+                continue
+            mj,xj,yj = init_data[j][0],positions[j],positions[j+10]
+            R = np.sqrt((xj-xi)**2+(yj-yi)**2)
+            ax += (mj/R**2)*(xj-xi)/R
+        a[i] = ax
+    
+    for i in range(10): # a = [ax,ay]
+        ay = 0
+        mi,xi,yi = init_data[i][0],positions[i],positions[i+10] 
+        for j in range(10):
+            if j==i:
+                continue
+            mj,xj,yj = init_data[j][0],positions[j],positions[j+10]
+            R = np.sqrt((xj-xi)**2+(yj-yi)**2)
+            ay += (mj/R**2)*(yj-yi)/R
+        a[i+10] = ay
+    return np.append(v,a) #[vx,vy,ax,ay]
 
 def multibody_positions(deltat):
-    global positions,who
-    positions = init_data
     ### START YOUR CODE HERE ###
-    dt = deltat/1000
-    t = 0
-    while t<deltat:
-        pos = positions.copy()
-        for i in range(10):
-            who = i 
-            sol = solve_ivp(f, [t,t+dt], positions[i])
-            pos[i] = sol.y[:,-1]
-        positions = pos
-        t += dt
+    solve = solve_ivp(f,[0,deltat], positions, atol=1E-12, rtol=1E-12)
     #### END YOUR CODE HERE ####
-    pos = np.array([positions[0][1]])
-    for i in range(10):
-        if i!=0:
-            pos = np.append(pos,positions[i][1])
-    for i in range(10):
-        pos = np.append(pos,positions[i][2])
-    return pos
-    
-print(multibody_positions(0.099701))
+    return solve.y[0:20,-1]
+
+print(multibody_positions(0.0746123))
