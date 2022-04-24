@@ -3,6 +3,8 @@ import pandas as pd
 from inputimeout import inputimeout, TimeoutOccurred
 import ascii_magic
 import os
+import webbrowser
+
 path = 'Time.csv'
 clear = lambda: os.system('clear')
 flag = True
@@ -98,7 +100,7 @@ while True:
 1: Study\n\
 2: Relax \n\
 3: Initialize \n\
-4: exit\n")
+4: Exit\n")
     case = int(string)
     if case == 1:
         Study_Time()
