@@ -102,21 +102,11 @@ def Study_Time():
         print("The differ:",data["Accumulation"][1]-data["Accumulation"][0])
     return 
 
-def initialize():
-    data = pd.read_csv(path,index_col=0)
-    data['Accumulation'][1] = 0
-    data['Accumulation'][0] = 0
-    data.to_csv(path)
-    print(data)
-    print("Success!!")
-    return
-
 while True:
     string = input("What time is it?\n\
 1: Relax\n\
 2: Study \n\
-3: Initialize \n\
-4: Exit\n")
+3: Exit\n")
     try:
         case = int(string)
         if case == 1:
@@ -124,8 +114,6 @@ while True:
         elif case == 2:
             Study_Time()
         elif case == 3:
-            initialize()
-        elif case == 4:
             print("Bye~Bye~")
             break
         else:
