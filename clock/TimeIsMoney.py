@@ -2,6 +2,7 @@ import itertools
 import threading
 import time
 import sys
+from numpy import diff
 import pandas as pd
 from inputimeout import inputimeout, TimeoutOccurred
 import ascii_magic
@@ -57,17 +58,18 @@ def animation2(s):
 
 def Relax_Time():
     Start = time.time()
-    time.sleep(1)
+    time.sleep(0.2)
     while True:
         if animation("...Relaxing...Relaxing...Relaxing...Relaxing...Relaxing...Relaxing...Relaxing..."):
             cls()
             End = time.time()
             break
+    differ = round((End-Start)/60,2)
     data = pd.read_csv(path,index_col=0)
-    data['Accumulation'][0] = round(float(data['Accumulation'][0])+ End-Start,0)
+    data['Accumulation'][0] = round(float(data['Accumulation'][0])+ differ,0)
     data.to_csv(path)
     cls()
-    print("Cost Time:",int(End-Start))
+    print("Cost Time:",differ)
     print(data)
     if(data["Accumulation"][0]<data["Accumulation"][1]):
         for i in range(5):
@@ -86,11 +88,12 @@ def Study_Time():
             cls()
             End = time.time()
             break
+    differ = round((End-Start)/60,2)
     data = pd.read_csv(path,index_col=0)
-    data['Accumulation'][1] = round(float(data['Accumulation'][1])+ End-Start,0)
+    data['Accumulation'][1] = round(float(data['Accumulation'][1])+ differ,0)
     data.to_csv(path)
     cls()
-    print("Cost Time:",int(End-Start))
+    print("Cost Time:",differ)
     print(data)
     if(data["Accumulation"][0]<data["Accumulation"][1]):
         for i in range(5):

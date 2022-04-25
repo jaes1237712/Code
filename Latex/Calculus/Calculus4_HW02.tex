@@ -1,0 +1,76 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[margin=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{float} %use the option [H]
+\graphicspath{ {images/} }
+\usepackage{amsthm} %lets us use \begin{proof}
+\usepackage{amsmath}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\usepackage{amssymb} %gives us the character
+\usepackage{CJKutf8}
+\usepackage[export]{adjustbox}
+\setlength{\parindent}{0cm} % starting spaces
+\setlength{\parskip}{1em} % paragraph width
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{markdown}
+\title{\textbf{Calculus HW2}}
+\author{王弘禹}
+\date\today
+\begin{document}
+\begin{CJK*}{UTF8}{bsmi}
+\linespread{1.5}
+\maketitle
+\newcommand{\st}[1]{\section*{#1}}
+\newcommand{\sst}[1]{\subsection*{#1}}
+\newcommand{\ssst}[1]{\subsubsection*{#1}}
+\newcommand{\dsp}{\displaystyle}
+\newcommand{\dx}{\,dx}
+\newcommand{\dphi}{\,d\phi}
+\newcommand{\dtheta}{\,d\theta}
+\newcommand{\dy}{\,dy}
+\newcommand{\dz}{\,dz}
+\newcommand{\dr}{\,dr}
+\newcommand{\drho}{\,d\rho}
+\newcommand{\dt}{\,dt}
+\st{16.4}
+\sst{22.}
+\begin{align}
+    \textbf{F}(x,y)=\langle\sin x,\sin y+xy^2+\dfrac{1}{3}x^3\rangle
+\end{align}
+By green theorem and polar coordinate:
+\begin{align}
+    \int_C \textbf{F}\cdot \,d\textbf{r} = \int_0^5\int_0^{\pi/2}r^3\dtheta dr=\dfrac{\pi}{2}\dfrac{625}{4}
+\end{align}
+\sst{31.}
+\begin{equation}
+    \dfrac{\partial}{\partial y}F_x=\dfrac{\partial }{\partial x}F_y = \dfrac{2x^2-6xy^2}{x^2+y^2}
+\end{equation}
+Therefore, by the method of example 5, we know that all the path which is closed to origin have the same integral. So, we chose a unit circle $C_1$ and use polar coordinate:
+\begin{align}
+    &\textbf{F} = \langle 2\sin t\cos t, \sin^2 t-\cos^2 t\rangle\\
+    &\int_{C_1}\textbf{F}\cdot d\textbf{r}=\int_0^{2\pi} (-2\sin^2 t\cos t+\sin^2 t\cos t-\cos^3 t)\dt=\int_0^{2\pi}-\cos t\dt =0=\int_{C}\textbf{F}\cdot d\textbf{r}
+\end{align}
+
+\st{16.5}
+\sst{20.}
+The domain $D\in\textbf{R}$ is star-shaped, therefore, we just need to check these conditions
+\begin{align}
+    \mathop{\forall}\limits_{i\ne j} i,j\implies \dfrac{\partial F_i}{\partial j}=\dfrac{\partial F_j}{\partial i}
+\end{align}
+in this case
+\begin{align}
+    &\dfrac{\partial F_y}{\partial x} - \dfrac{\partial F_x}{\partial y} = 0-0=0\\
+    &\dfrac{\partial F_x}{\partial z} - \dfrac{\partial F_z}{\partial x} = e^z\cos x - e^z \cos x=0\\
+    &\dfrac{\partial F_z}{\partial y} - \dfrac{\partial F_y}{\partial z} = -e^y\sin z - (-e^y\sin z) = 0
+\end{align}
+
+
+\sst{29.}
+\sst{34.}
+\sst{35.}
+
+\end{CJK*}
+\end{document}
