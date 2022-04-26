@@ -1,4 +1,5 @@
 import itertools
+from re import X
 import threading
 import time
 import sys
@@ -10,11 +11,11 @@ import os
 
 
 path = 'Time.csv'
-clear = lambda: os.system('clear')
 flag = True
 def cls():
+    print("\033[%d;%dH" % (0, 0))
+def clear():
     print("\033[H\033[J", end="")
-
 def animation(s):
     cnt = 0
     while cnt<=80:
@@ -31,9 +32,8 @@ def animation(s):
                 my_art = ascii_magic.from_image_file(path)
                 ascii_magic.to_terminal(my_art)
                 print("input sth to END")
-                sys.stdout.flush()
                 time.sleep(2/144)
-                cnt +=1   
+                cnt +=1
     return False
 def animation2(s):
     cnt = 0
@@ -57,18 +57,19 @@ def animation2(s):
     return False
 
 def Relax_Time():
+    clear()
     Start = time.time()
     time.sleep(0.2)
     while True:
         if animation("...Relaxing...Relaxing...Relaxing...Relaxing...Relaxing...Relaxing...Relaxing..."):
-            cls()
+            clear()
             End = time.time()
             break
     differ = round((End-Start)/60,2)
     data = pd.read_csv(path,index_col=0)
     data['Accumulation'][0] = round(float(data['Accumulation'][0])+ differ,0)
     data.to_csv(path)
-    cls()
+    clear()
     print("Cost Time:",differ)
     print(data)
     if(data["Accumulation"][0]<data["Accumulation"][1]):
@@ -81,18 +82,19 @@ def Relax_Time():
         print("The differ:",data["Accumulation"][1]-data["Accumulation"][0])
     return 
 def Study_Time():
+    clear()
     Start = time.time()
     time.sleep(1)
     while True:
         if animation2("...Studying...Studying...Studying...Studying...Studying...Studying...Studying..."):
-            cls()
+            clear()
             End = time.time()
             break
     differ = round((End-Start)/60,2)
     data = pd.read_csv(path,index_col=0)
     data['Accumulation'][1] = round(float(data['Accumulation'][1])+ differ,0)
     data.to_csv(path)
-    cls()
+    clear()
     print("Cost Time:",differ)
     print(data)
     if(data["Accumulation"][0]<data["Accumulation"][1]):
