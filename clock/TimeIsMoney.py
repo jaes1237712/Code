@@ -8,6 +8,8 @@ import pandas as pd
 from inputimeout import inputimeout, TimeoutOccurred
 import ascii_magic
 import os
+import cursor
+cursor.hide()
 
 
 path = 'Time.csv'
@@ -41,7 +43,7 @@ def animation2(s):
         tmp = ""
         for i in s:
             try:
-                inputimeout(prompt='', timeout=0.2)
+                inputimeout(prompt='', timeout=0.1)
                 return True
             except TimeoutOccurred:
                 cls()
@@ -51,7 +53,7 @@ def animation2(s):
                 my_art = ascii_magic.from_image_file(path)
                 ascii_magic.to_terminal(my_art)
                 print("input sth to END")
-                time.sleep(4/144)
+                time.sleep(2/144)
                 cnt +=1
             
     return False
@@ -72,7 +74,7 @@ def Relax_Time():
     clear()
     print("Cost Time:",differ)
     print(data)
-    if(data["Accumulation"][0]<data["Accumulation"][1]):
+    if(data["Accumulation"][0]<data["Accumulation"][1]/2):
         for i in range(5):
             print("You are great!!. Keep this figure!!")
         print("The differ:",data["Accumulation"][1]-data["Accumulation"][0])
@@ -97,13 +99,13 @@ def Study_Time():
     clear()
     print("Cost Time:",differ)
     print(data)
-    if(data["Accumulation"][0]<data["Accumulation"][1]):
+    if(data["Accumulation"][0]<data["Accumulation"][1]/2):
         for i in range(5):
             print("You are great!!. Keep this figure!!")
         print("The differ:",data["Accumulation"][1]-data["Accumulation"][0])
     else:
         for i in range(5):
-            print("加油，補足差距！")
+            print("Not enough!!")
         print("The differ:",data["Accumulation"][1]-data["Accumulation"][0])
     return 
 
