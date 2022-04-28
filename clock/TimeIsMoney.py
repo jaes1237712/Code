@@ -58,6 +58,25 @@ def animation2(s):
             
     return False
 
+def Trivial_Time():
+    clear()
+    Start = time.time()
+    time.sleep(0.2)
+    while True:
+        if animation("...Trivial...Trivial...Trivial...Trivial...Trivial...Trivial...Trivial"):
+            clear()
+            End = time.time()
+            break
+    differ = round((End-Start)/60,2)
+    data = pd.read_csv(path,index_col=0)
+    data['Accumulation'][2] = round(float(data['Accumulation'][2])+ differ,0)
+    data.to_csv(path)
+    clear()
+    print("Cost Time:",differ)
+    print(data)
+    for i in range(5):
+        print("Make trivial time as small as possible, ok?")
+    return
 def Relax_Time():
     clear()
     Start = time.time()
@@ -113,7 +132,8 @@ while True:
     string = input("What time is it?\n\
 1: Relax\n\
 2: Study \n\
-3: Exit\n")
+3: Trivial\n\
+4: Exit\n")
     try:
         case = int(string)
         if case == 1:
@@ -121,6 +141,8 @@ while True:
         elif case == 2:
             Study_Time()
         elif case == 3:
+            Trivial_Time()
+        elif case == 4:
             print("Bye~Bye~")
             break
         else:
