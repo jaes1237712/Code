@@ -43,7 +43,7 @@ def animation2(s):
         tmp = ""
         for i in s:
             try:
-                inputimeout(prompt='', timeout=0.1)
+                inputimeout(prompt='', timeout=0.2)
                 return True
             except TimeoutOccurred:
                 cls()
@@ -53,7 +53,7 @@ def animation2(s):
                 my_art = ascii_magic.from_image_file(path)
                 ascii_magic.to_terminal(my_art)
                 print("input sth to END")
-                time.sleep(2/144)
+                time.sleep(4/144)
                 cnt +=1
             
     return False
