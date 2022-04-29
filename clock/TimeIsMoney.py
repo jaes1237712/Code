@@ -93,7 +93,7 @@ def Relax_Time():
     clear()
     print("Cost Time:",differ)
     print(data)
-    if(data["Accumulation"][0]<data["Accumulation"][1]/2):
+    if(data["Accumulation"][0]+data["Accumulation"][2]<data["Accumulation"][1]/2):
         for i in range(5):
             print("You are great!!. Keep this figure!!")
         print("The differ:",data["Accumulation"][1]-data["Accumulation"][0])
@@ -118,7 +118,7 @@ def Study_Time():
     clear()
     print("Cost Time:",differ)
     print(data)
-    if(data["Accumulation"][0]<data["Accumulation"][1]/2):
+    if(data["Accumulation"][0]+data["Accumulation"][2]<data["Accumulation"][1]/2):
         for i in range(5):
             print("You are great!!. Keep this figure!!")
         print("The differ:",data["Accumulation"][1]-data["Accumulation"][0])
