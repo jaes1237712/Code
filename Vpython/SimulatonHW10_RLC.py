@@ -1,6 +1,7 @@
 from vpython import*
-
+import time
 #parameters
+t0 = time.time()
 fd = 120
 T = 1/fd
 L = 200E-3
@@ -76,6 +77,7 @@ while t <= (20/fd):
     v_t.plot(pos=(t*fd,v/100))
     i_t.plot(pos=(t*fd,i))
     E_t.plot(pos=(t*fd, Energy))
+
         
 
     
