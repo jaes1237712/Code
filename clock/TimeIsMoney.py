@@ -96,11 +96,11 @@ def Relax_Time():
     if(data["Accumulation"][0]+data["Accumulation"][2]<data["Accumulation"][1]/2):
         for i in range(5):
             print("You are great!!. Keep this figure!!")
-        print("The differ:",data["Accumulation"][1]-data["Accumulation"][0])
+        print("The differ:",2*data["Accumulation"][1]-data["Accumulation"][0]-data["Accumulation"][2])
     else:
         for i in range(5):
             print("Shame on you. You should study then play!")
-        print("The differ:",data["Accumulation"][1]-data["Accumulation"][0])
+        print("The differ:",2*data["Accumulation"][1]-data["Accumulation"][0]-data["Accumulation"][2])
     return 
 def Study_Time():
     clear()
@@ -121,11 +121,11 @@ def Study_Time():
     if(data["Accumulation"][0]+data["Accumulation"][2]<data["Accumulation"][1]/2):
         for i in range(5):
             print("You are great!!. Keep this figure!!")
-        print("The differ:",data["Accumulation"][1]-data["Accumulation"][0])
+        print("The differ:",2*data["Accumulation"][1]-data["Accumulation"][0]-data["Accumulation"][2])
     else:
         for i in range(5):
             print("Not enough!!")
-        print("The differ:",data["Accumulation"][1]-data["Accumulation"][0])
+        print("The differ:",2*data["Accumulation"][1]-data["Accumulation"][0]-data["Accumulation"][2])
     return 
 
 while True:
@@ -141,7 +141,9 @@ while True:
         elif case == 2:
             Study_Time()
         elif case == 3:
-            Trivial_Time()
+            string = input("Are u sure? (Y/n)")
+            if string == "Y":
+                Trivial_Time()
         elif case == 4:
             print("Bye~Bye~")
             break
