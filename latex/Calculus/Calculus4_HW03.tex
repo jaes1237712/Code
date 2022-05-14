@@ -1,0 +1,159 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[margin=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{physics}
+\usepackage{float} %use the option [H]
+\graphicspath{ {images/} }
+\usepackage{amsthm} %lets us use \begin{proof}
+\usepackage{amsmath}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\usepackage{amssymb} %gives us the character
+\usepackage{CJKutf8}
+\usepackage[export]{adjustbox}
+\setlength{\parindent}{0cm} % starting spaces
+\setlength{\parskip}{1em} % paragraph width
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{markdown}
+\title{\textbf{Calculus}}
+\author{王弘禹}
+\date\today
+\begin{document}
+\begin{CJK*}{UTF8}{bsmi}
+\linespread{1.5}
+\maketitle
+\newcommand{\st}[1]{\section*{#1}}
+\newcommand{\sst}[1]{\subsection*{#1}}
+\newcommand{\ssst}[1]{\subsubsection*{#1}}
+\newcommand{\dsp}{\displaystyle}
+\newcommand{\dx}{\,dx}
+\newcommand{\dphi}{\,d\phi}
+\newcommand{\dtheta}{\,d\theta}
+\newcommand{\dy}{\,dy}
+\newcommand{\dz}{\,dz}
+\newcommand{\dr}{\,dr}
+\newcommand{\drho}{\,d\rho}
+\newcommand{\tb}{\textbf}
+\st{16.8}
+\sst{8.}
+\begin{align}
+    \tb r (u,v) = \langle 2uv,u^2-v^2,u^2+v^2\rangle &\implies \tb{r}_u\times \tb{r}_v = \langle 8uv, 4u^2-4v^2, -4v^2-4u^2\rangle\\
+    u^2+v^2 \le 1 &\implies 0 \le v^2 \le 1-u^2\\
+\end{align}
+then
+\begin{align}
+    \iint_S x^2+y^2 \,dS =& \int_{-\sqrt{1-u^2}}^{\sqrt{1-u^2}}\int_{-1}^1 {(u^2+v^2)}^2\mid\tb{r}_u \times \tb{r}_v\mid\,dudv\\
+    =&4\sqrt{2}\int_0^{2\pi}\int_0^1 r^7\dr d\theta= \sqrt{2}\pi
+\end{align}
+\sst{20.}
+\ssst{Side:}
+Consider a map $\gamma$
+\begin{equation}
+    \gamma : (z,\theta)\longmapsto (3\cos \theta,3\sin\theta,z) \implies \gamma_z \times \gamma_\theta=\langle-3\cos\theta,-3\sin\theta,0 \rangle
+\end{equation}
+The magnitude of $\gamma_z \times \gamma_\theta = 3$
+\begin{align}
+    \iint_{S_1} (x^2+y^2+z^2)\,dS=\int_0^{2\pi}\int_0^2 3(9+z^2)\dz d\theta=124\pi
+\end{align}
+\ssst{Top:}
+Consider a map $\gamma$
+\begin{equation}
+    \gamma : (r,\theta) \longmapsto (r\cos\theta, r\sin\theta, 2) \implies \mid \gamma_r\times \gamma_\theta \mid = r
+\end{equation}
+then 
+\begin{align}
+    \iint_{S_2}(x^2+y^2+z^2)\,dS = \int_0^{2\pi} \int_0^3 r(r^2+4) \dr d\theta=2\pi(\dfrac{3^4}{4}+2\cdot 3^2)=\dfrac{153}{2}\pi
+\end{align}
+\ssst{Bottom:}
+Consider a map $\gamma$
+\begin{equation}
+    \gamma : (r,\theta) \longmapsto (r\cos\theta, r\sin\theta, 0)\implies \mid \gamma_r\times \gamma_\theta\mid = r
+\end{equation}
+then
+\begin{align}
+    \iint_{S_3}(x^2+y^2+z^2)\,dS= \int_0^{2\pi}\int_0^3 r^3 \dr d\theta = \dfrac{81}{2}\pi
+\end{align}
+\ssst{the area S}
+\begin{equation}
+    \iint_S (x^2+y^2+z^2) = 124 \pi +\dfrac{153}{2}\pi + \dfrac{81}{2}\pi = 241\pi
+\end{equation}
+\sst{44.}
+Consider a map $\gamma$
+\begin{align}
+    &\gamma: (\theta,\phi) \longmapsto (3\sin\phi\cos\theta, 3\sin\phi \sin\theta, 3\cos \phi),\, \theta \in [0,2\pi]\; \phi \in [0,\pi/2]\\
+    \implies &\gamma_\theta \times \gamma_\phi=  \langle -9\sin^2\phi \cos \theta, -9\sin^2\phi \sin\theta, -9\sin\phi\cos\phi\rangle
+\end{align}
+the rate of flow outward through the hemisphere $S$ is 
+\begin{align}
+    \iint_S \tb{v} \cdot (-\gamma_\theta \times \gamma_\phi)\,dS= \int_0^{2\pi}\int_0^{\pi/2}54\sin^3\phi \sin\theta\cos\theta \dphi d\theta=0
+\end{align}
+\st{16.8}
+\sst{10.}
+Consider a map $\gamma$
+\begin{align}
+    \gamma:(r,\theta) \longmapsto  (r\cos\theta,r\sin\theta,r\sin\theta+2)\implies \gamma_r\times \gamma_\theta = \langle 0,-r,r \rangle
+\end{align}
+then $\curl{\tb F}=\langle 1-x,-1,z-2\rangle$
+\begin{align}
+    \int_C \tb F \cdot \,d\tb r = \iint\limits_S \curl{\tb F}\cdot d\tb S=\int_0^{2\pi}\int_0^1 [r+r(r\sin\theta)]\dr d\theta = \pi
+\end{align}
+\sst{14.}
+Consider a map $\gamma$
+\begin{align}
+    \gamma: (x,y) \longmapsto (x,y,x) \implies \gamma_x \times \gamma_y = \langle -1,0,1\rangle
+\end{align}
+Find the domain of $x$ and $y$
+\begin{align}
+    x=x^2+y^2 \implies y^2 = x-x^2 \implies y \in [-\sqrt{x-x^2},\sqrt{x-x^2}],\,x\in[0,1]
+\end{align}
+then $\curl{\tb F} = \langle 1,-1,y\rangle$
+\begin{align}
+    \int_C \tb F \cdot d\tb r=& \int_0^1\int_{-\sqrt{x-x^2}}^{\sqrt{x-x^2}} \curl{\tb F}\cdot(\gamma_x\times \gamma_y)\dy dx\\
+    =&\int_0^1 -2\sqrt{x-x^2}\dx = -2 \int_0^1\sqrt{\dfrac{1}{4}- {(x-\dfrac{1}{2}) }^2}\dx 
+\end{align}
+Let $x-\dfrac{1}{2}=\dfrac{1}{2}\cos\theta$
+\begin{align}
+    \int_{-\pi}^0 \sqrt{\dfrac{1}{4}-\dfrac{1}{4}\cos^2\theta} \sin\theta d\theta = \int_{-\pi}^0 -\dfrac{1}{2}\sin^2\theta d\theta=-\dfrac{1}{4}\pi
+\end{align}
+\sst{22.}
+Consider a map $\gamma$
+\begin{align}
+    \gamma: (r,t) \longmapsto (r\cos t,r\sin t,2r^2 \sin t\cos t) \implies \gamma_r \times \gamma_t = \langle -2r^2\sin t,-2r^2\cos t, r\rangle
+\end{align}
+then $\curl{\tb F} = \langle -2z,-3x^2,-1\rangle$
+\begin{align}
+    \int_C \tb F \cdot d \tb r =& - \int_0^{2\pi}\int_0^1(8r^4\sin^2 t\cos t+6r^4 \cos t\cos^2 t -r)\dr dt\\
+    =&\int_0^{2\pi}\int_0^1 r\dr d\theta = \pi
+\end{align}
+\st{16.9}
+\sst{14.}
+\begin{align} 
+    \iint\limits_S \tb F \cdot d \tb S = \iiint\limits_V \div{\tb F}\,dV=&\int_0^1 \int_{-\sqrt{x}}^{\sqrt{x}}\int_0^{1-x}(y+2z)\dz dy dx\\
+    =&\int_0^1 \int_{-\sqrt{x}}^{\sqrt{x}}[y(1-x)+(1-x)^2]\dy dx\\
+    =&\int_0^1 2\sqrt{x}(1-x)^2\dx
+\end{align}
+Let $u=\sqrt{x}\implies 2u du =dx$
+\begin{align}
+    \int_0^1 2\sqrt{x}(1-x)^2\dx = \int_0^1 (4u^6-8u^4+4u^2)\,du=\dfrac{32}{105}
+\end{align}
+\sst{20.}
+$\div F = 0+0+1=1,\, x^+y^2+z=2 \implies z=2-x^2-y^2$,and use the cylinderical coordinate:
+\begin{align}
+    \iiint\limits_V \div{\tb F}\, dV= \int_0^{2\pi}\int_0^1\int_1^{2-r^2}r \dz drd\theta=\dfrac{\pi}{2}
+\end{align}
+\ssst{For bottom}
+Consider a map $\gamma$
+\begin{align}
+    \gamma : (r,\theta) \longmapsto (r\cos\theta, r\sin\theta,1)\implies \gamma_r \times \gamma_\theta = \langle 0,0,r\rangle
+\end{align}
+then calculate the flux
+\begin{align}
+    \iint\limits_{S_1} \tb F \cdot d\tb S= - \int_0^{2\pi}\int_0^1 r\dr d\theta=-\pi
+\end{align}
+\begin{align}
+    \iint\limits_S \tb F \cdot d \tb S=\dfrac{\pi}{2}+\pi=\dfrac{3}{2}\pi
+\end{align}
+\end{CJK*}
+\end{document}
