@@ -3,16 +3,17 @@ import matplotlib.image as mpimg
 import numpy as np
 import pandas as pd 
 
-img=mpimg.imread('EXP1.jpeg')
+img=mpimg.imread('06.jpg')
 img_copy = img.copy()
+center = 1900
 for i in range(4000):
-    img_copy[i][1200:1211] = np.array([0,0,0])
+    img_copy[i][center:center+100] = np.array([0,0,0])
 imgplot = plt.imshow(img_copy)
-st,ed = 250,3000 # start, end
+st,ed = 1700,3000 # start, end
 RGB = np.zeros(((ed-st)+1,3))
 
 for i in range(st,ed+1, 1):
-    RGB[i-st] = img[i][1205]
+    RGB[i-st] = img[i][center]
 x = np.linspace(250,3000,(3000-250)+1)
 df = pd.DataFrame(RGB)
 filepath = 'raw_data.xlsx'

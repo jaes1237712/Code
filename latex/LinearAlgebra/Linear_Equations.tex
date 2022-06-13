@@ -1,0 +1,118 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{physics}
+\usepackage[english]{babel}
+\usepackage[margin=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{float} %use the option [H]
+\graphicspath{ {images/} }
+\usepackage{amsthm} %lets us use \begin{proof}
+\usepackage{amsmath}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\usepackage{amssymb} %gives us the character
+\usepackage{CJKutf8}
+\usepackage[export]{adjustbox}
+\setlength{\parindent}{0cm} % starting spaces
+\setlength{\parskip}{1em} % paragraph width
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{markdown}
+\title{\textbf{Linear Equations Notes}}
+\author{Book: Linear Algebra, by HOFFMAN,KUNZE}
+\date{\today}
+\begin{document}
+\begin{CJK*}{UTF8}{bsmi}
+\linespread{1.5}
+\maketitle
+\newcommand{\st}[1]{\section*{#1}}
+\newcommand{\sst}[1]{\subsection*{#1}}
+\newcommand{\ssst}[1]{\subsubsection*{#1}}
+\newcommand{\dsp}{\displaystyle}
+\newcommand{\dx}{\,dx}
+\newcommand{\dphi}{\,d\phi}
+\newcommand{\dtheta}{\,d\theta}
+\newcommand{\dy}{\,dy}
+\newcommand{\dz}{\,dz}
+\newcommand{\dr}{\,dr}
+\newcommand{\drho}{\,d\rho}
+\newcommand{\tb}{\textbf}
+\st{Theorem list}
+\begin{enumerate}
+    \item Equivalent systems of linear equations have exactly the same solutions.
+    \item To each elementary row operation \(e\) there corresponds an elementary row operation \(e_1\) of the same type as \(e\), s.t. \(e_1(e(A))=A\).
+    \item If A and B are row-equivalent m X n matrices, the homogeneous systems of linear equations \(AX=0\) and \(BX=0\) have exactly the same solutions.
+    \item Every m X n matrix over  the field \(F\) is row-equivalent to a row-reduced matrix.
+    \item Every m X n matrix over  the field \(F\) is row-equivalent to a row-reduced echelon matrix.
+    \item If A is an m X n matrix and \(m<n\), then the homogeneous system of linear equations \(AX=0\) has a non-trivial solution.
+    \item If A is an n X N matrix, then A is row-equivalent to the identity matrix if and only if the system of equations \(AX=0\) has only the trivial solution.
+    \item If A,B,C are matrices over the field \(F\) such that the products BC and A(BC) are defined, then so are the products AB, (AB)C and\begin{equation}
+        A(BC) = (AB)C
+    \end{equation}
+\end{enumerate}
+\st{Definition list}
+\begin{itemize}
+    \item If A and B are m X n matrices over the field \(F\), we say that B is row-equivalent to A if B can be obtained from A by a finite sequence of elementary row operation.
+    \item An m X n matrix R is called row-reduced if the first non-zero entry in each non-zero row of R is equal to 1 and each column of R which contains the leading non-zero entry of some row has all its other entries 0.
+    \item An m X n matrix R is called a row-reduced echelon matrix if:\begin{enumerate}
+        \item R is row-reduced
+        \item every row of R which has all its entries 0 occurs below every row which has a non-zero entry
+        \item if row1,\(\ldots\),r are the non-zeros rows of R, and if the leading non-zero entry of roo i occurs in column \(k_i\), i =1,\(\ldots\),r, then \(k_1<k_2<\cdots<k_r\)
+    \end{enumerate}
+    \item Let A be an (m,n) matrix over the field \(F\) and let B be an (n,p) matrix over \(F\). The product AB is the (m,p) matrix C whose i,j entry is\begin{equation}
+        C_{ij} = \sum_{r=1}^n A_{ir}B_{rj} \implies C_{i*} = \sum^r A_{ir}B_{r*},\, C_{*j}=\sum^r A_{*r}B_{rj}
+    \end{equation}
+\end{itemize}
+\st{1.1 Fields}
+\sst{The defination of field}
+\begin{center}
+    $F$ denotes the set of real numbers or complex numbers.
+\end{center}
+Which satisfy below rules
+\begin{enumerate}
+    \item Addition is commutative, $x+y=y+x$
+    \item Addition is associative, $x+(y+z) = (x+y)+z$
+    \item There is a unique element 0 in $F$ s.t $x+0=x$
+    \item To each $x$ in $F$ there a unique element (-x) in $F$ s.t x+(-x) = 0 
+    \item Multiplication is commutative $xy=yx$
+    \item Multiplication is associative $x(yz) = (xy)z$
+    \item There is an unique non-zero element $1$ s.t. $x1=x$
+    \item To each non-zero $x$, there is an unique element $x^{-1}$ s.t. $xx^{-1}=1$
+    \item Multiplication distributes over addition; $x(y+z) = xy+xz$
+\end{enumerate}
+After the operation of multiplication or addition, the element should still in \(F\).
+\begin{center}
+    The set \(F\), together with these two operation, is then called a \tb{field}.
+\end{center}
+For example, with usual operation of addition and multiplication, the set \(C\) of complex numbers is a field, as is the set \(R\) of real numbers.
+\begin{enumerate}
+    \item We use the word \tb{scalar} as the element of a field
+\end{enumerate}
+\sst{The example of subfield}
+\begin{enumerate}
+    \item The set of \tb{postive integers} is not a subfield of \(C\).
+    \item The set of \tb{integers} is not a subfield of \(C\)
+    \item The set of \tb{rational numbers}  is a subfield of \(C\), and any subfield of \(C\) must contain every rational number.
+    \item The set of all complex numbers of the form \(x+y\sqrt{2}\), where \(x\) and \(y\) are rational, is a subfield of \(C\)
+\end{enumerate}
+The proof of 4. (\(x,y\neq 0 \))
+\begin{align}
+    &(x+y\sqrt{2})(x'+y'\sqrt{2}) = 1\\
+    &(xx'+2yy') + (xy'+x'y)\sqrt{2} = 1\\ 
+    &\begin{cases}
+        xx'+2yy' = 1\\
+        xy'+x'y  = 0 
+    \end{cases}\\
+    &\dfrac{x}{x'}=-\dfrac{y}{y'}=\dfrac{1}{p}\;(x',y' \neq 0)\\
+    &x' = \dfrac{x}{x^2-2y^2}, y'= \dfrac{-y}{x^2-2y^2}
+\end{align}
+For the case $x',y' = 0$
+\begin{align}
+    &x'= 0 \implies x = 0, y'=\dfrac{1}{2y}\\
+    &y'= 0 \implies y = 0, x'=\dfrac{1}{x}
+\end{align}
+\st{1.2 Systems of Linear Equations}
+\begin{center}
+    
+\end{center}
+\end{CJK*}
+\end{document}
