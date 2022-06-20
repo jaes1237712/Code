@@ -1,8 +1,6 @@
-import numpy as np
 import matplotlib.pyplot as plt
-from sklearn import svm
-from sklearn.model_selection import GridSearchCV
-
-for i in range(3):
-    seq = [i, (i+1)%3, (i+2)%3] # A,B,C B,C,A C,A,B
-    print(seq)
+import matplotlib.image as mpimg
+import numpy as np
+import pandas as pd 
+img=mpimg.imread('06.jpg')    
+img = img[:,:,::-1]
