@@ -183,5 +183,32 @@ Let V be a vector space. A \tb{basis} for V is a linearly independent set of vec
     \item Let R be a non-zero row-reduced echelon matrix. Then the non-zero row vectors of R form a basis for the row space of R. 
     \item Let m and n be postive integers and lef F be a field. Suppose W is a subspace of \(F^n\) and \(\dim W\leq m\). Then there is precisely one (m,n) row-reduced echelon 
 \end{enumerate}
+\st{Chapter 3.}
+\st{Theorem list}
+\begin{enumerate}
+    \item Let V be a finite-dimensional vector space over the field F and let \(\{\alpha_1,\ldots,\alpha_2\}\) be an ordered basis for V. Let W be a vector space over the same field F and let \(\beta_1,\ldots,\beta_2\) be any vectors in W. Then there is precisely one linear transforamtion T from V into W such that \begin{equation}
+        T\alpha_j = \beta_j,\;\;j=1,\ldots,n.
+    \end{equation}
+    \item Let V and W be vector space over the field F and let T be a linear transforamtion from V into W. Suppose that V is finite-dimensional.\begin{equation}
+        \text{rank}(T)+ \text{nullity}(T) = \dim V.
+    \end{equation}
+    \item \(If\) A is an (m,n) matrix with entries in the field F, then\begin{equation}
+        \text{row rank} (A) = \text{column rank}(A)
+    \end{equation}
+    \item T and U are linear transforamtion from V into W. Define\begin{align}
+        &(T+U)(\alpha) = T\alpha+U\alpha\\
+        &(cT)(\alpha) = c(T\alpha)
+    \end{align}
+    then, the set of all linear transforamtions from V into W, is a vector space over the field F.
+    \item Let V be an n-dimensional vector space over the field F, and let W be an m-dimensional vector space over F. Then the space L(V,W) is finite-dimensional and has dimension mn.
+    \item Let V, W, and Z be vector spaces over the field F. Let T be a linear transforamtion from V into W and U a linear transforamtion from W into Z. Then the composed function UT defined by (UT) (\(\alpha\)) = U(T(\(\alpha\))) is a linear transforamtion from V into Z.
+    \item Let V and W be vector spaces over the field F and let T be a linear transforamtion from V into W. \(If\) T is invertible, then the inverse function \(T^{-1}\) is a linear transforamtion from W onto V.
+    \item Let T be a linear transforamtion from V into W. Then T is non-singular if and only if T carries each linearly independent subset of V onto a linearly independent subset of W.
+    \item Let V and W be finite-dimensional vector spaces over the field F such that \(\dim V = \dim W\). \(If\) T is a linear transforamtion from V into W, the following are equivalent:\begin{enumerate}
+        \item T is invertible.
+        \item T is non-singular.
+        \item T is onto, that is, the range of T is W.
+    \end{enumerate}
+\end{enumerate}
 \end{CJK*}
 \end{document}
