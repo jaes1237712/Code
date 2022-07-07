@@ -37,6 +37,7 @@
 \newcommand{\dr}{\,dr}
 \newcommand{\drho}{\,d\rho}
 \newcommand{\tb}{\textbf}
+\newcommand{\scr}{\mathscr}
 \st{Chapter 1.}
 \sst{Definition list}
 \begin{itemize}
@@ -209,6 +210,42 @@ Let V be a vector space. A \tb{basis} for V is a linearly independent set of vec
         \item T is non-singular.
         \item T is onto, that is, the range of T is W.
     \end{enumerate}
+    \item Every n-dimensional vector space over tyhe field F is isomorphic to the space \(F^n\).
+    \item Let V be an n-dimensional vector space over the field F and W an m-dimensional vector space over F. Let \(\scr{B}\) be an ordered basis for V and \(\scr{B^\prime}\) an ordered basis for W. For each linear transformation T from V into W, there is an (m,n) matrix A with entries in F such that\begin{eqnarray}
+        {[T\alpha]}_{\scr{B^\prime}} = A{[\alpha]}_{\scr{B}}
+    \end{eqnarray}
+    for every vector \(\alpha\) in V. Furthermore, \(T\xrightarrow{}A\) is a one-one correspondence between the set of all linear transforamtions from V into W and the set of all (m,n) matrices over the field F.
+    \item Let V be an n-dimensional vector space over the field F and let W be an m-dimensional vector space over F. For each pair of ordered bases \(\scr{B,\,B^\prime}\) for V and W respectively, the function which assigns to a linear transforamtion T its matrix relative to \(\scr{B,\,B^\prime}\) is an isomorphism between the space L(V,\,W) and the space of all (m,n) matrices over the field F.
+    \item Let V, W, and Z be finite-dimensional vector spaces over the field F; let T be a linear transforamtion from V into W and U a linear transforamtion from W into Z. If \(\beta,\,\beta^\prime,\,\beta^{\prime\prime}\) are ordered bases for the space V, W, and Z, respectively, if A is the matrix of T relative to the pair \(\beta,\,\beta^\prime\), and B is the matrix of U relative to the pair \(\beta^\prime,\,\beta^{\prime\prime}\), then the matrix of the composition UT relative to the pair \(\beta,\,\beta^{\prime\prime}\) is the product matrix C=BA.
+    \item Let V be a finite-dimensional vector space over the field F, and let\begin{equation}
+        \beta = \{\alpha_1,\ldots,\,\alpha_n\}\quad \beta^\prime = \{\alpha_1^\prime,\ldots,\,\alpha_n^\prime\}
+    \end{equation}
+    be ordered bases for V. Suppose T is a linear operator on V. If \(P=[P_1,\ldots,\,P_n]\) is the (n,n) matrix with columns \(P_j = [\alpha^\prime_j]_\beta\), then\begin{equation}
+        [T]_{\beta^\prime} = P^{-1}[T]_{\beta}P
+    \end{equation}
+    Alternatively, if \(U\alpha_j=\alpha_j^\prime\)\begin{equation}
+        [T]_{\beta^\prime} = {[U]_\beta}^{-1}[T]_{\beta}[U]_\beta
+    \end{equation}
+    \item Let V be a finite-dimensional vector space over the field F, and let \(\beta=\{\alpha_1,\ldots,\,\alpha_n\}\) be a basis for V. Then there is a unique dual basis \(\beta^{*}=\{f_1,\ldots,\,f_n\}\) for \(V^{*}\) such that \(f_i(\alpha_j)=\delta_{ij}\). For each linear functional f on V we have \begin{equation}
+        f = \sum_{i=1}^n f(\alpha_i)f_i
+    \end{equation}
+    and for each vector \(\alpha\) in V we have\begin{equation}
+        \alpha = \sum_{i=1}^n f_i(\alpha)\alpha_i
+    \end{equation}
+    \item Let V be a finite-dimensional vector space over the field F, and let W be a subspace of V. Then\begin{equation}
+        \dim W + \dim {W^0} = \dim V.
+    \end{equation}
+    \item Let V be a finite-dimensional vector space over the field F.\\ For each vector \(\alpha\) in V define\begin{equation}
+        L_\alpha(f) = f(\alpha),\qquad f\in V^*
+    \end{equation}
+    The mapping \(\alpha \xrightarrow{} L_\alpha\) is then an isomorphism of V onto \(V^{**}\).
+    \\ \tb{Corollary.} \\
+    Let V be a finite-dimensional vector space over the field F. Each basis for \(V^*\) is the dual of some basis for V.\\
+    \tb{Corollary.} \\
+    Let V be a finite-dimensional vector space over the fiel F. If L is a linear functional on the dual space \(V^*\) of V, then there is a unique vector \(\alpha\) in V such that \begin{equation}
+        L(f) = f(\alpha)
+    \end{equation}
+    for every f in \(V^*\)
 \end{enumerate}
 \end{CJK*}
 \end{document}
