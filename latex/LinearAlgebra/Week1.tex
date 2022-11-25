@@ -1,0 +1,57 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{physics}
+\usepackage[english]{babel}
+\usepackage[margin=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{float} %use the option [H]
+\graphicspath{ {images/} }
+\usepackage{amsthm} %lets us use \begin{proof}
+\usepackage{amsmath}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\usepackage{amssymb} %gives us the character
+\usepackage{CJKutf8}
+\usepackage[export]{adjustbox}
+\setlength{\parindent}{0cm} % starting spaces
+\setlength{\parskip}{1em} % paragraph width
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{markdown}
+\title{\textbf{Week-1}}
+\author{王弘禹}
+\date\today
+\begin{document}
+\begin{CJK*}{UTF8}{bsmi}
+\linespread{1.5}
+\maketitle
+\newcommand{\st}[1]{\section*{#1}}
+\newcommand{\sst}[1]{\subsection*{#1}}
+\newcommand{\ssst}[1]{\subsubsection*{#1}}
+\newcommand{\dsp}{\displaystyle}
+\newcommand{\dx}{\,dx}
+\newcommand{\dphi}{\,d\phi}
+\newcommand{\dtheta}{\,d\theta}
+\newcommand{\dy}{\,dy}
+\newcommand{\dz}{\,dz}
+\newcommand{\dr}{\,dr}
+\newcommand{\drho}{\,d\rho}
+\newcommand{\tb}{\textbf}
+\st{1.5}
+\sst{8.}
+\begin{align}
+    C_{ij} &= {(AB)}_{ij} - {(BA)}_{ij}\\
+    &= \sum_r (A_{ir}B_{rj} - B_{ir}A_{rj})\\
+    \sum_i C_{ii} &= \sum_i\sum_r (A_{ir}B_{ri} - B_{ir}A_{ri})\\
+    &= \sum_{(i,r),\, i\le r}(A_{ir}B_{ri}-B_{ri}A_{ir})=0
+\end{align}
+\st{1.6}
+\sst{9.}
+Assume \(A_{kk}=0\) and \(A_{ii}\neq 0,\,i\neq k\), then, we can reduce A to the form below.
+\begin{align}
+    A^\prime_{ij} = \delta_{ij},\, j\neq k
+\end{align}
+In this form, the linear combination of rows can't be the k-th row of identity matrix.
+\sst{11.}
+Trivial problem. We can first do row operation to make \(PA\) be a row-reduced echelon, and then do column operations to make \(PAQ\) be column-reduced echelon matrix.
+\end{CJK*}
+\end{document}

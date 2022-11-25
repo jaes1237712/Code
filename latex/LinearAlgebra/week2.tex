@@ -1,0 +1,92 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{physics}
+\usepackage[english]{babel}
+\usepackage[margin=2cm]{geometry}
+\usepackage{mathrsfs}  
+\usepackage{graphicx}
+\usepackage{float} %use the option [H]
+\graphicspath{ {images/} }
+\usepackage{amsthm} %lets us use \begin{proof}
+\usepackage{amsmath}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\usepackage{amssymb} %gives us the character
+\usepackage{CJKutf8}
+\usepackage[export]{adjustbox}
+\setlength{\parindent}{0cm} % starting spaces
+\setlength{\parskip}{1em} % paragraph width
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{markdown}
+\title{\textbf{Week-2}}
+\author{王弘禹}
+\date\today
+\begin{document}
+\begin{CJK*}{UTF8}{bsmi}
+\linespread{1.5}
+\maketitle
+\newcommand{\st}[1]{\section*{#1}}
+\newcommand{\sst}[1]{\subsection*{#1}}
+\newcommand{\ssst}[1]{\subsubsection*{#1}}
+\newcommand{\dsp}{\displaystyle}
+\newcommand{\dx}{\,dx}
+\newcommand{\dphi}{\,d\phi}
+\newcommand{\dtheta}{\,d\theta}
+\newcommand{\dy}{\,dy}
+\newcommand{\dz}{\,dz}
+\newcommand{\dr}{\,dr}
+\newcommand{\drho}{\,d\rho}
+\newcommand{\tb}{\textbf}
+
+\st{2.3}
+\sst{11.}
+\ssst{(a)}
+Consider two vectors \(v_1,v_2\) in V
+\begin{align}
+    &(cv_1+v_2)\in V,\quad c\in R\\
+    \implies & \text{V is a vector space over real numbers.}
+\end{align}
+\ssst{(b)}
+There are six components in the basis:\begin{align}
+    &\beta_1 = \begin{bmatrix}
+        1 & 0\\
+        0 & -1
+    \end{bmatrix} &\beta_2 = \begin{bmatrix}
+        i & 0\\
+        0 & -i
+    \end{bmatrix}\\
+    &\beta_3 = \begin{bmatrix}
+        0 & 1\\
+        0 & 0
+    \end{bmatrix} &\beta_4 = \begin{bmatrix}
+        0 & i \\
+        0 & 0
+    \end{bmatrix}\\
+    &\beta_5 = \begin{bmatrix}
+        0 & 0\\
+        1 & 0 
+    \end{bmatrix} &\beta_6 = \begin{bmatrix}
+        0 & 0\\
+        i & 0
+    \end{bmatrix}
+\end{align}
+\ssst{(c)}
+The proof that W is a subspace of V is same method like (a). There are four components in the basis:
+\begin{align}
+    &\beta_1 = \begin{bmatrix}
+        1 & 0\\
+        0 & -1
+    \end{bmatrix} &\beta_2 = \begin{bmatrix}
+        i & 0\\
+        0 & -i
+    \end{bmatrix}\\
+    &\beta_3 = \begin{bmatrix}
+        0 & 1\\
+        -1 & 0
+    \end{bmatrix} &\beta_4 = \begin{bmatrix}
+        0 & i \\
+        i & 0
+    \end{bmatrix}
+\end{align}
+\end{CJK*}
+\end{document}

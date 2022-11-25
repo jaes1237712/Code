@@ -1,0 +1,131 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{physics}
+\usepackage[margin=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{float} %use the option [H]
+\graphicspath{ {images/} }
+\usepackage{amsthm} %lets us use \begin{proof}
+\usepackage{amsmath}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\usepackage{amssymb} %gives us the character
+\usepackage{CJKutf8}
+\usepackage[export]{adjustbox}
+\setlength{\parindent}{0cm} % starting spaces
+\setlength{\parskip}{1em} % paragraph width
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{markdown}
+\title{\textbf{Calculus HW2}}
+\author{王弘禹}
+\date\today
+\begin{document}
+\begin{CJK*}{UTF8}{bsmi}
+\linespread{1.5}
+\maketitle
+\newcommand{\st}[1]{\section*{#1}}
+\newcommand{\sst}[1]{\subsection*{#1}}
+\newcommand{\ssst}[1]{\subsubsection*{#1}}
+\newcommand{\dsp}{\displaystyle}
+\newcommand{\dx}{\,dx}
+\newcommand{\dphi}{\,d\phi}
+\newcommand{\dtheta}{\,d\theta}
+\newcommand{\dy}{\,dy}
+\newcommand{\dz}{\,dz}
+\newcommand{\dr}{\,dr}
+\newcommand{\drho}{\,d\rho}
+\newcommand{\dt}{\,dt}
+\newcommand{\tb}{\textbf}
+\st{16.4}
+\sst{22.}
+\begin{align}
+    \textbf{F}(x,y)=\langle\sin x,\sin y+xy^2+\dfrac{1}{3}x^3\rangle
+\end{align}
+By green theorem and polar coordinate:
+\begin{align}
+    \int_C \textbf{F}\cdot \,d\textbf{r} = \int_0^5\int_0^{\pi/2}r^3\dtheta dr=\dfrac{\pi}{2}\dfrac{625}{4}
+\end{align}
+\sst{31.}
+\begin{equation}
+    \dfrac{\partial}{\partial y}F_x=\dfrac{\partial }{\partial x}F_y = \dfrac{2x^2-6xy^2}{x^2+y^2}
+\end{equation}
+Therefore, by the method of example 5, we know that all the path which is closed to origin have the same integral. So, we chose a unit circle $C_1$ and use polar coordinate:
+\begin{align}
+    &\textbf{F} = \langle 2\sin t\cos t, \sin^2 t-\cos^2 t\rangle\\
+    &\int_{C_1}\textbf{F}\cdot d\textbf{r}=\int_0^{2\pi} (-2\sin^2 t\cos t+\sin^2 t\cos t-\cos^3 t)\dt=\int_0^{2\pi}-\cos t\dt =0=\int_{C}\textbf{F}\cdot d\textbf{r}
+\end{align}
+
+\st{16.5}
+\sst{20.}
+The domain $D\in\textbf{R}$ is star-shaped, therefore, we just need to check these conditions
+\begin{align}
+    \mathop{\forall}\limits_{i\ne j} i,j\implies \dfrac{\partial F_i}{\partial j}=\dfrac{\partial F_j}{\partial i}
+\end{align}
+in this case
+\begin{align}
+    &\dfrac{\partial F_y}{\partial x} - \dfrac{\partial F_x}{\partial y} = 0-0=0\\
+    &\dfrac{\partial F_x}{\partial z} - \dfrac{\partial F_z}{\partial x} = e^z\cos x - e^z \cos x=0\\
+    &\dfrac{\partial F_z}{\partial y} - \dfrac{\partial F_y}{\partial z} = -e^y\sin z - (-e^y\sin z) = 0
+\end{align}
+
+
+\sst{29.}
+Use the Levi-Civita symbol, use Kroneker delta,,and $x_1, x_2, x_3$ represent $x,y,z$ 
+\begin{align}
+    \text{div}(\textbf{F}\times\textbf{G})= \text{div}(\sum_{ijk=1}^{3}\epsilon_{i,j,k}\hat{x}_i F_j \cdot G_k)=&\sum_{l,i,j,k=1}^{3}\delta_{li} \epsilon_{ijk}\dfrac{\partial}{x_l}(F_j\cdot G_k)\\
+     =&\sum_{l,i,j,k=1}^3 \delta_{li}\epsilon_{ijk}(\dfrac{\partial F_j}{\partial x_l}G_k+F_j\dfrac{\partial G_k}{\partial x_l})\\
+     =&\tb{G}\cdot \sum_{i,j,k=1}^3 \epsilon_{ijk}\hat{x}_k\dfrac{\partial}{\partial x_i}F_j+\tb{F}\cdot \sum_{i,j,k=1}^3 \hat{x}_j \dfrac{\partial}{\partial x_i}G_k\\
+     =&\tb{G}\cdot \text{curl}\;\tb F - \tb F \cdot \text{curl}\;\tb G
+\end{align}
+\sst{34.}
+\begin{align}
+    &r =\sqrt{x^2+y^2+z^2},\,\dfrac{\partial r}{\partial x} = \dfrac{x}{r},\,\dfrac{\partial r}{\partial y} = \dfrac{y}{r},\,\dfrac{\partial r}{\partial z} = \dfrac{z}{r}\\ 
+\end{align}
+then, $\dfrac{\partial}{\partial x}\dfrac{x}{r^p}=\dfrac{r^p-x\cdot p\cdot r^{p-1}\cdot \dfrac{x}{r}}{r^{2p}}$
+\begin{align}
+    \div{\tb F} =& \dfrac{\partial}{\partial x} \dfrac{x}{r^p}+\dfrac{\partial}{\partial y}\dfrac{y}{r^p}+\dfrac{\partial}{\partial z}\dfrac{z}{r^p}\\
+    =& \dfrac{3r^p-p\cdot r^{p-1}\cdot \dfrac{r^2}{r}}{r^{2p}}=\dfrac{3-p}{r^p}\xrightarrow{} \div{F}=0 \implies p=3 
+\end{align}
+
+\sst{35.}
+By EQ13
+\begin{align}
+    \oint_C \tb f(\nabla g) \cdot \tb n \, ds =& \iint\limits_D \div {\tb{f}(\nabla g)} \,dA
+\end{align}
+then
+\begin{align}
+    \div {\tb{f}(\nabla g)} =&\dfrac{\partial}{\partial x}(f(\nabla g)_x)+\dfrac{\partial}{\partial y}(f(\nabla g)_y)\\
+    =&(\nabla g)_x\dfrac{\partial}{\partial x} f + f\dfrac{\partial}{\partial x}(\nabla g)_x+(\nabla g)_y \dfrac{\partial}{\partial y}f + f\dfrac{\partial}{\partial}(\nabla g)_y\\
+    =&(\nabla g)\cdot \nabla f+f\nabla^2 g
+\end{align}
+then
+\begin{align}
+    \oint_C \tb f(\nabla g) \cdot \tb n - \iint\limits_D \nabla f \cdot \nabla g \,dA=\iint\limits_D f\nabla^2 g\,dA
+\end{align}
+\st{16.6}
+\sst{62.}
+Consider $x\ge 0,\,z\ge 0$, and let $z(x,y) = \sqrt{1-x^2} \implies \dfrac{\partial z}{\partial x}=\dfrac{-x}{\sqrt{1-x^2}},\,\dfrac{\partial z}{\partial y}=0$
+\begin{align}
+    \sqrt{1+(\dfrac{x^2}{\sqrt{1-x^2}})}=\sqrt{\dfrac{1}{1-x^2}}
+\end{align}
+then
+\begin{align}
+    \dfrac{1}{8}\cdot \text{Area} = \int_0^1\int_{-x}^x \dfrac{1}{\sqrt{1-x^2}}\dy dx=2 \implies \text{A} = 16
+\end{align}
+\sst{64.}
+\ssst{(a)}
+\begin{align}
+    &r(\theta,\alpha) = (x,y,z),\,x=(b+a\cos \alpha)\cos \theta,\, y=(b+a\cos\alpha) \sin\theta,\,z=a\sin\alpha
+\end{align}
+\ssst{(c)}
+\begin{align}
+    &r_\theta = \langle -(b+a\cos\alpha)\sin\theta,(b+a\cos \alpha)\cos\theta \rangle\\
+    &r_\alpha = \langle -a\sin\alpha \cos \theta, -a\sin\alpha\sin\theta,a\cos\alpha\rangle
+\end{align}
+and $r\theta \times r_\alpha = a(b+a\cos\alpha)$
+\begin{align}
+    \text{Area} = \int_0^{2\pi} \int_0^{2\pi}(ab+a^2\cos \alpha) \,d\alpha d\theta=4\pi^2 ab
+\end{align}
+\end{CJK*}
+\end{document}
