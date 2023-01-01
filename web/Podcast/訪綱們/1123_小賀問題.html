@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        小賀問題 - HackMD
+    </title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i|Source+Code+Pro:300,400,500|Source+Sans+Pro:300,300i,400,400i,600,600i|Source+Serif+Pro&subset=latin-ext);.hljs{background:#fff;color:#333;display:block;overflow-x:auto;padding:.5em}.hljs-comment,.hljs-meta{color:#969896}.hljs-emphasis,.hljs-quote,.hljs-string,.hljs-strong,.hljs-template-variable,.hljs-variable{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-attribute,.hljs-bullet,.hljs-literal,.hljs-number,.hljs-symbol{color:#0086b3}.hljs-built_in,.hljs-builtin-name{color:#005cc5}.hljs-name,.hljs-section{color:#63a35c}.hljs-tag{color:#333}.hljs-attr,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-selector-pseudo,.hljs-title{color:#795da3}.hljs-addition{background-color:#eaffea;color:#55a532}.hljs-deletion{background-color:#ffecec;color:#bd2c00}.hljs-link{text-decoration:underline}.markdown-body{word-wrap:break-word;font-size:16px;line-height:1.5}.markdown-body:after,.markdown-body:before{content:"";display:table}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;line-height:1;margin-left:-20px;padding-right:4px}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-bottom:16px;margin-top:0}.markdown-body hr{background-color:#e7e7e7;border:0;height:.25em;margin:24px 0;padding:0}.markdown-body blockquote{border-left:.25em solid #ddd;color:#777;font-size:16px;padding:0 1em}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body kbd,.popover kbd{background-color:#fcfcfc;border:1px solid;border-color:#ccc #ccc #bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb;color:#555;display:inline-block;font-size:11px;line-height:10px;padding:3px 5px;vertical-align:middle}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{font-weight:600;line-height:1.25;margin-bottom:16px;margin-top:24px}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#000;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{border-bottom:1px solid #eee;padding-bottom:.3em}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{color:#777;font-size:.85em}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{list-style-type:none;padding:0}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-bottom:0;margin-top:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{padding-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{font-size:1em;font-style:italic;font-weight:700;margin-top:16px;padding:0}.markdown-body dl dd{margin-bottom:16px;padding:0 16px}.markdown-body table{display:block;overflow:auto;width:100%;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{border:1px solid #ddd;padding:6px 13px}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{background-color:#fff;box-sizing:initial;max-width:100%}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{background-color:initial;max-width:none;vertical-align:text-top}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{border:1px solid #ddd;display:block;float:left;margin:13px 0 0;overflow:hidden;padding:7px;width:auto}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{clear:both;color:#333;display:block;padding:5px 0 0}.markdown-body span.align-center{clear:both;display:block;overflow:hidden}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{clear:both;display:block;overflow:hidden}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{background-color:#0000000a;border-radius:3px;font-size:85%;margin:0;padding:.2em 0}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{content:"\00a0";letter-spacing:-.2em}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{background:#0000;border:0;font-size:100%;margin:0;padding:0;white-space:pre;word-break:normal}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{background-color:#f7f7f7;border-radius:3px;font-size:85%;line-height:1.45;overflow:auto;padding:16px}.markdown-body pre code,.markdown-body pre tt{word-wrap:normal;background-color:initial;border:0;display:inline;line-height:inherit;margin:0;max-width:auto;overflow:visible;padding:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{font-size:12px;line-height:1;overflow:hidden;padding:5px;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{background:#fff;border:0;padding:10px 8px 9px;text-align:right}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{background:#f8f8f8;border-top:0;font-weight:700}.news .alert .markdown-body blockquote{border:0;padding:0 0 0 40px}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{cursor:default!important;float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle}.markdown-body{max-width:758px;overflow:visible!important;padding-bottom:40px;padding-top:40px;position:relative}.markdown-body .emoji{vertical-align:top}.markdown-body pre{border:inherit!important}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{border-right:3px solid #6ce26c!important;box-sizing:initial;color:#afafaf!important;cursor:default;display:inline-block;min-width:20px;padding:0 8px 0 0;position:relative;text-align:right;z-index:4}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-bottom:none;border-left:none;border-top:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-collapse:inherit!important;border-spacing:0}.markdown-body code[data-gist-id]{background:none;padding:0}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{margin-bottom:unset;overflow:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert>p:last-child{margin-bottom:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram,.markdown-body pre.vega{background-color:inherit;border-radius:0;overflow:visible;text-align:center;white-space:inherit}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code,.markdown-body pre.vega>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg,.markdown-body pre.vega>svg{height:100%;max-width:100%}.markdown-body pre>code.wrap{word-wrap:break-word;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap}.markdown-body .alert>p:last-child,.markdown-body .alert>ul:last-child{margin-bottom:0}.markdown-body summary{display:list-item}.markdown-body summary:focus{outline:none}.markdown-body details summary{cursor:pointer}.markdown-body details:not([open])>:not(summary){display:none}.markdown-body figure{margin:1em 40px}.markdown-body .mark,.markdown-body mark{background-color:#fff1a7}.vimeo,.youtube{background-color:#000;background-position:50%;background-repeat:no-repeat;background-size:contain;cursor:pointer;display:table;overflow:hidden;text-align:center}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{object-fit:contain;width:100%;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{height:100%;left:0;position:absolute;top:0;width:100%}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{color:#fff;height:auto;left:50%;opacity:.3;position:absolute;top:50%;transform:translate(-50%,-50%);transition:opacity .2s;width:auto;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{bottom:0;height:100%;left:0;position:absolute;right:0;top:0;width:100%}.figma{display:table;padding-bottom:56.25%;position:relative;width:100%}.figma iframe{border:1px solid #eee;bottom:0;height:100%;left:0;position:absolute;right:0;top:0;width:100%}.markmap-container{height:300px}.markmap-container>svg{height:100%;width:100%}.MJX_Assistive_MathML{display:none}#MathJax_Message{z-index:1000!important}.ui-infobar{color:#777;margin:25px auto -25px;max-width:760px;position:relative;z-index:2}.toc .invisable-node{list-style-type:none}.ui-toc{bottom:20px;position:fixed;z-index:998}.ui-toc.both-mode{margin-left:8px}.ui-toc.both-mode .ui-toc-label{border-bottom-left-radius:0;border-top-left-radius:0;height:40px;padding:10px 4px}.ui-toc-label{background-color:#e6e6e6;border:none;color:#868686;transition:opacity .2s}.ui-toc .open .ui-toc-label{color:#fff;opacity:1;transition:opacity .2s}.ui-toc-label:focus{background-color:#ccc;color:#000;opacity:.3}.ui-toc-label:hover{background-color:#ccc;opacity:1;transition:opacity .2s}.ui-toc-dropdown{margin-bottom:20px;margin-top:20px;max-height:70vh;max-width:45vw;overflow:auto;padding-left:10px;padding-right:10px;text-align:inherit;width:25vw}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{letter-spacing:.0029em;padding-right:0}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{color:#767676;display:block;font-size:13px;font-weight:500;padding:4px 20px}.ui-toc-dropdown .nav>li:first-child:last-child>ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{background-color:initial;border-left:1px solid #000;color:#000;padding-left:19px;text-decoration:none}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{border-left:none;border-right:1px solid #000;padding-right:19px}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{background-color:initial;border-left:2px solid #000;color:#000;font-weight:700;padding-left:18px}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{border-left:none;border-right:2px solid #000;padding-right:18px}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{font-size:12px;font-weight:400;padding-bottom:1px;padding-left:30px;padding-top:1px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{font-size:12px;font-weight:400;padding-bottom:1px;padding-left:40px;padding-top:1px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{font-weight:500;padding-left:28px}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{font-weight:500;padding-left:38px}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html[lang^=ja] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ ゴシック,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html[lang=zh-tw] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html[lang=zh-cn] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html .markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ ゴシック,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html .markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html .markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}html[lang^=ja] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ Ｐゴシック,sans-serif}html[lang=zh-tw] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html[lang=zh-cn] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}html .ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ Ｐゴシック,sans-serif}html .ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html .ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}.ui-affix-toc{max-height:70vh;max-width:15vw;overflow:auto;position:fixed;top:0}.back-to-top,.expand-toggle,.go-to-bottom{color:#999;display:block;font-size:12px;font-weight:500;margin-left:10px;margin-top:10px;padding:4px 10px}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{background-position:50%;background-repeat:no-repeat;background-size:cover;border-radius:50%;display:block;height:20px;margin-bottom:2px;margin-right:5px;margin-top:2px;width:20px}.ui-user-icon.small{display:inline-block;height:18px;margin:0 0 .2em;vertical-align:middle;width:18px}.ui-infobar>small>span{line-height:22px}.ui-infobar>small .dropdown{display:inline-block}.ui-infobar>small .dropdown a:focus,.ui-infobar>small .dropdown a:hover{text-decoration:none}.ui-more-info{color:#888;cursor:pointer;vertical-align:middle}.ui-more-info .fa{font-size:16px}.ui-connectedGithub,.ui-published-note{color:#888}.ui-connectedGithub{line-height:23px;white-space:nowrap}.ui-connectedGithub a.file-path{color:#888;padding-left:22px;text-decoration:none}.ui-connectedGithub a.file-path:active,.ui-connectedGithub a.file-path:hover{color:#888;text-decoration:underline}.ui-connectedGithub .fa{font-size:20px}.ui-published-note .fa{font-size:20px;vertical-align:top}.unselectable{-webkit-user-select:none;-o-user-select:none;user-select:none}.selectable{-webkit-user-select:text;-o-user-select:text;user-select:text}.inline-spoiler-section{cursor:pointer}.inline-spoiler-section .spoiler-text{background-color:#333;border-radius:2px}.inline-spoiler-section .spoiler-text>*{opacity:0}.inline-spoiler-section .spoiler-img{filter:blur(10px)}.inline-spoiler-section.raw{background-color:#333;border-radius:2px}.inline-spoiler-section.raw>*{opacity:0}.inline-spoiler-section.unveil{cursor:auto}.inline-spoiler-section.unveil .spoiler-text{background-color:#3333331a}.inline-spoiler-section.unveil .spoiler-text>*{opacity:1}.inline-spoiler-section.unveil .spoiler-img{filter:none}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{color:#222;position:relative;z-index:1}.markdown-body.slides:before{background-color:currentColor;bottom:0;box-shadow:0 0 0 50vw;content:"";display:block;left:0;position:absolute;right:0;top:0;z-index:-1}.markdown-body.slides section[data-markdown]{background-color:#fff;margin-bottom:1.5em;position:relative;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{left:1em;max-height:100%;overflow:hidden;position:absolute;right:1em;top:50%;transform:translateY(-50%)}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{border:3px solid #777;content:"";height:1.5em;position:absolute;right:1em;top:-1.5em}.site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ ゴシック,sans-serif}html[lang=zh-tw] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;-webkit-overflow-scrolling:touch;font-family:Source Sans Pro,Helvetica,Arial,sans-serif;letter-spacing:.025em}html[lang^=ja] body{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ ゴシック,sans-serif}html[lang=zh-tw] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}abbr[data-original-title],abbr[title]{cursor:help}body.modal-open{overflow-y:auto;padding-right:0!important}svg{text-shadow:none}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="doc" class="markdown-body container-fluid comment-inner comment-enabled" data-hard-breaks="true"><h1 id="小賀問題" data-id="小賀問題"><a class="anchor hidden-xs" href="#小賀問題" title="小賀問題"><span class="octicon octicon-link"></span></a><span>小賀問題</span></h1><p><span class="toc"><ul>
+<li><a href="#小賀問題" title="小賀問題">小賀問題</a><ul>
+<li class="invisable-node"><ul>
+<li><a href="#基本資料" title="基本資料">基本資料</a></li>
+<li><a href="#事蹟" title="事蹟">事蹟</a></li>
+<li><a href="#弦論" title="弦論">弦論</a></li>
+<li><a href="#資料出處" title="資料出處">資料出處</a></li>
+</ul>
+</li>
+<li><a href="#訪綱：" title="訪綱：">訪綱：</a><ul>
+<li><a href="#教授簡介" title="教授簡介">教授簡介</a></li>
+<li><a href="#關於弦論" title="關於弦論">關於弦論</a></li>
+<li><a href="#做理論" title="做理論">做理論</a></li>
+<li><a href="#研究之路的困難與瓶頸" title="研究之路的困難與瓶頸">研究之路的困難與瓶頸</a></li>
+<li><a href="#教學" title="教學">教學</a></li>
+<li><a href="#結尾" title="結尾">結尾</a></li>
+</ul>
+</li>
+<li><a href="#訪綱王弘禹" title="訪綱(王弘禹)">訪綱(王弘禹)</a><ul>
+<li><a href="#純物理內容" title="純物理內容">純物理內容</a></li>
+<li><a href="#留學生活" title="留學生活">留學生活</a></li>
+<li><a href="#學術研究日常" title="學術研究日常">學術研究日常</a></li>
+<li><a href="#比較隨意的話題" title="比較隨意的話題">比較隨意的話題</a></li>
+</ul>
+</li>
+<li><a href="#寄給小賀的部分：" title="寄給小賀的部分：">寄給小賀的部分：</a><ul>
+<li><a href="#請老師用幾句話講一下弦論" title="請老師用幾句話講一下弦論">請老師用幾句話講一下弦論</a></li>
+<li><a href="#弦論遇到的瓶頸" title="弦論遇到的瓶頸">弦論遇到的瓶頸</a></li>
+<li><a href="#老師最近的黑洞訊息悖論研究" title="老師最近的黑洞訊息悖論研究">老師最近的黑洞訊息悖論研究</a></li>
+<li><a href="#理論物理學家的一天" title="理論物理學家的一天">理論物理學家的一天</a></li>
+<li><a href="#收尾" title="收尾">收尾</a></li>
+<li><a href="#問題列表" title="問題列表">問題列表</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</span></p><h3 id="基本資料" data-id="基本資料"><a class="anchor hidden-xs" href="#基本資料" title="基本資料"><span class="octicon octicon-link"></span></a><span>基本資料</span></h3><p><img src="https://i.imgur.com/0zeGVEk.png" alt="" loading="lazy"></p><h4 id="經歷補" data-id="經歷補"><a class="anchor hidden-xs" href="#經歷補" title="經歷補"><span class="octicon octicon-link"></span></a><span>經歷(補)</span></h4><p><span>復興國小、復興國中、成功高中</span><br>
+<span>國立臺灣大學電機工程學系學士</span></p><h4 id="獲獎與榮耀" data-id="獲獎與榮耀"><a class="anchor hidden-xs" href="#獲獎與榮耀" title="獲獎與榮耀"><span class="octicon octicon-link"></span></a><span>獲獎與榮耀</span></h4><p><span>中研院年輕學者研究著作獎 2001</span><br>
+<span>中華民國第43屆十大傑出青年 2005</span><br>
+<span>國科會傑出研究獎（二度獲獎）</span><br>
+<span>國科會吳大猷紀念獎</span><br>
+<span>海外華人物理學會亞洲成就獎	</span><br>
+<span>國立臺灣大學教學傑出教師（三度獲獎）</span></p><h4 id="研究領域" data-id="研究領域"><a class="anchor hidden-xs" href="#研究領域" title="研究領域"><span class="octicon octicon-link"></span></a><span>研究領域</span></h4><p><span>數學物理、高能理論物理、超弦理論、量子群、量子場論</span></p><h4 id="教授科目" data-id="教授科目"><a class="anchor hidden-xs" href="#教授科目" title="教授科目"><span class="octicon octicon-link"></span></a><span>教授科目</span></h4><p><span>量子力學(一:102 104學年度/二:102~105學年度)、廣義相對論、弦論專題</span><br>
+<span>應數三、電磁學、電磁學習題演練、普通物理、理論物理專題</span></p><h3 id="事蹟" data-id="事蹟"><a class="anchor hidden-xs" href="#事蹟" title="事蹟"><span class="octicon octicon-link"></span></a><span>事蹟</span></h3><ul>
+<li><strong><span>問問題與對教學的熱愛</span></strong><span>(臺大教學傑出教師的故事3 12)</span></li>
+</ul><blockquote>
+<p><span>賀培銘深深相信：「問問題」是學生學習的關鍵，鼓勵學生提問也是他為人師最重要的教學理念</span><br>
+<span>「我覺得：問對的問題就是學習的關鍵。我們要讓這個世界變得更好，或者解決困難，其實都是從問對的問題開始。你要學會問對的問題，問適當的問題，問關鍵的問題，問對問題就可以走下一步。」</span></p>
+</blockquote><p><span>上課時，教授每隔一段時間就會轉頭問大家有沒有問題，期盼能為大家即時解惑；培養學生提出關鍵問題的方法是「多問」，問得越多，腦袋會自動幫助相處更好的問題因此「問問題」是教授上課不可或缺的一環，即使是基本的問題，教授也會不厭其煩的回答，甚至打鐘後花費十幾至二十多分鐘為學生解惑。</span></p><p><span>電機系畢業後，秉持著對基礎科學以及物理理論的熱情，毅然決然到美國直攻物理博士。</span></p><blockquote>
+<p><span>「我在還沒決定要念物理之前就喜愛研究，我喜歡問問題並了解事情，同時也滿常教別人。高中的時候，我發現自己喜歡回答同學的問題。在回答問題的過程中，我去了解他們在想什麼，他們給我一個新的看法，可能我在教他，但我也可以從他那邊學到東西。」</span></p>
+</blockquote><p><span>許多年的教學經驗，加上教授虛心接受學生的回饋，使教授養成深厚的教學功力，不只板書設計別出心裁，喜歡將黑板分成三個區域，使黑板空間乾淨整潔、複雜的算式也可排列整齊。如果早上十點有課，八點就能在研究室看到他，先把即將上臺傳授的內容順過一遍，細節想清楚，甚至練習板書，可見教授對教學嚴謹的態度。</span></p><blockquote>
+<p><span>每學期開的理論課，都是一次又一次的教學實驗。賀培銘樂於嘗試各種不同的教書方法，有時候以教師演講為主，有時候則將學生上臺報告比重調高，更有時候鼓勵學生之間直言不諱，相互討論。多變的教學方法，目的就是幫助臺下學子吸收知識，並訓練問題意識。</span></p>
+</blockquote><blockquote>
+<p><span>幫助學生達到最佳學習效果，是賀培銘不變的目標。他想了想說:「教學中遇到些程度不佳的學生，但這些學生卻說喜歡上我的課。因為他們發現，只要努力就能把原本認為很難的東西搞懂!」…學生送的禮物和感謝，賀培銘都細心底收藏在研究室的白色櫃子哩，透明的玻璃讓他方便欣賞這些他與學生的點點滴滴。</span></p>
+</blockquote><blockquote>
+<p><span>因為研究範圍屬於純物理理論，學術成果很難在短時間內達成實際應用，因此賀培銘半開玩笑地說：他把教學事業看成對社會立即貢獻、有所回饋的管道。「我不覺得可以因為研究而放棄或者看輕教學的任務。」賀培銘啟發學生的使命感表露無遺。」…「當教授有趣，在於你看起來好像永遠都是這個樣子，但自己的感覺是：我一直在改變！我所知道的事情每天都不太一樣，所以從來不會覺得無聊。」</span><br>
+<img src="https://i.imgur.com/60XugTK.png" alt="" loading="lazy"></p>
+</blockquote><ul>
+<li><strong><span>全力以赴</span></strong><span>(臺大教學傑出教師的故事3)</span></li>
+</ul><p><span>在教授辦公室白板上寫著送給畢業生的三句期勉:work hard、be yourself、have fun，不管是研究或是教學，教授總是全力以赴，經常熬夜工作、咖啡不離桌。教授直言，雖然大環境是以研究作為升等與獎勵的憑據，教書只是個低報酬率的投資，但教學能值得努力，而且可以幫助研究。舉例來說，教學需站在學生角度思考，才能因材施教，如此轉換思考模式的習慣，往往能成為突破研究瓶頸的關鍵、增加研究的靈活性，甚至在研究的抽象思考中，找到自我存在價值。</span></p><ul>
+<li><strong><span>難題與解題高手</span></strong><span>(臺大教學傑出教師的故事3 12)</span></li>
+</ul><blockquote>
+<p><span>「要夠難，讓學生覺得自己從不會、面臨困難，到跨越障礙，這樣才能夠學到新東西。想開發新的能力，一個要件就是夠難！」…所謂「難」並不局限於高年級理論或專題課程，就算是低年級必修普通物理學課，賀培銘也堅持要有一定難度。他耐心解釋：「每個東西都可以有很多不同的層次，看學生到哪個層次，你就可以問下一個層次的問題，就算是牛頓第一運動定律，我也可以講到很難，一層一層問下去。」</span></p>
+</blockquote><blockquote>
+<p><span>…回家作業也不容易…賀培銘習慣不從教科書擷取作業題目，而是搭配自己的演講內容想出專屬習題…學生說題目難，助教說題目靈活，賀培銘則形容自己的題目為「不典型」。他認為課本習題其實都差不多，一味練習並沒有太大意義，自己出題反而能夠依照課程講授內容設計，學生其實只要跟著上課的思考步調去想，寫習題時就有辦法得心應手。</span></p>
+</blockquote><blockquote>
+<p><span>許多學生喜歡稱賀培銘為「強者」，其中一項主要原因歸功於他驚人的解題能力。不少學生的印象裡：再多問題都難不倒他…「老師他會把概念講得非常清楚，試著用很多種方法讓學生理解，只要有問題就會耐心回答，並且是當場回答，不會拖延…老師與研究生討論論文時，能夠精確快速地抓到學生的問題，突破盲點。」</span></p>
+</blockquote><p><span>教授經常使用「換位思考」，想像自己是甚麼都不懂的學生，親自探索解題過程中可能遇到的各種問題，進而了解學生的疑惑點。</span></p><blockquote>
+<p><span>教授說:「當人們長期適應一門學科的知識體系就容易被『洗腦』」</span><br>
+<span>「透過接受挑戰、努力並真正被檢驗才會知道自己在哪個位置，也才會建立真正的信心。如果不接受挑戰，藥學的不會因此變簡單，要透過夠難的東西去測驗，雖然結果不一定會好，但可以看到努力的成果。」</span></p>
+</blockquote><p><span>雖然學生考試平均才四、五十，但教授認為分數比較產生的，將平均設定在五十，最容易鑑別學生程度。曾經有想過顧及學生心理層面而出簡單點，平均設定在70分，但發現學生警惕心下降，最後得出將其中平均設在50，期末平均設在70，讓學生考完其中覺得震驚，但期末可得到獎勵。</span></p><ul>
+<li><strong><span>賀氏笑話</span></strong><span>(臺大教學傑出教師的故事3)</span></li>
+</ul><p><span>第一屆學生(教授戲稱他們為「很慘的白老鼠」)給了教授很多教學建議，包含上課速度太快，建議一個段落結束後可以再複習一次</span></p><blockquote>
+<p><span>「後來，我上課前都會花點時間複習上次的內容，也盡量在進入新主題前，先大略摘要講述接下來要講的內容。」</span></p>
+</blockquote><p><span>「一堂一笑話」也是第一屆學生發想的，教授為讓學生能從艱難的物理中稍微喘口氣，每堂課專門從準備好的「笑話集」選出笑話，笑話集內容來自恰好在出版社的朋友幫忙蒐集與上網查。部分笑話需要動腦，如:</span></p><blockquote>
+<p><span>「路旁有一棟房子，一個人走進去後，卻走出二個人來。生物學家看到說:『這是繁殖問題』；物理學家說:『這是實驗誤差』；數學家卻說:『其實也沒什麼好奇怪的啊!如果等一下再進去一個人，房子裡就會空無一人了!』(按:</span><span class="mathjax raw">\(1-2+1=0\)</span><span>)」。</span></p>
+</blockquote><p><span>學生對笑話的好笑與否差異頗大，有人認為3/4好笑，有人認為大部分都不好笑，除了少數，也有認為好像的地方在於老師講完後的那一陣靜默，或是老師講笑話的樣子很好笑</span></p><blockquote>
+<p><span>老師蠻愛講笑話，但是其他內容都聽不懂耶 (urschool)</span><br>
+<span>大推老師精心準備的笑話 因為大概是唯一聽得懂的東西…(誤 老師教很好 但課都好難QQ (urschool)</span></p>
+</blockquote><p><span>臉書「說讚的內容」中有一個叫「" English JoKes "」、「Ridi che ti passa」(義大利文，google翻譯為笑過你，看起來是發迷因與笑話的)的粉專</span></p><ul>
+<li><strong><span>支持教授的妻子</span></strong><span>(文自臺大教學傑出教師的故事3 圖自12)</span></li>
+</ul><p><span>在念高中時結識當時就讀台南女中的妻子林慧麗，通信好一陣子，之後雙雙考進台大，教授的妻子為心理系萬年書卷(教授在求學期間會偶爾翻閱妻子的心理學課本，因而對心理學有些了解，之後應用於教學中)，而教授則是電機系書卷常客，兩人最常約會的地點是台大圖書館。妻子一直是教授的支柱，曾放棄高額獎金隨教授到柏克萊讀博士，後又為了帶小孩，放棄在柏克萊念博士的機會，故賀培銘教授在2005年膺選十大傑出青年時言:</span></p><blockquote>
+<p><span>「如果說我曾得過一點榮譽和成就，大概都可以歸功於父母的教養、妻子的支持、朋友的幫助與上天的恩惠。」</span><br>
+<img src="https://i.imgur.com/GhsoW89.png" alt="" loading="lazy"></p>
+</blockquote><ul>
+<li><strong><span>第四十三屆十大傑出青年之基督徒四傑的故事</span></strong><span>(出自他人部落格)</span></li>
+</ul><blockquote>
+<p><span>目前任職於台灣大學物理系的賀培銘教授，在學術表現上深受國際肯定，他是全世界最早（一九九六）研究超弦理論中時空之非換幾何性質的幾個人之一。</span></p>
+</blockquote><blockquote>
+<p><span>「我覺得我不是靠聰明，我是靠傻勁，我相信神的帶領，我的母親是一個虔誠的天主教徒，雖然她沒有讓我出生時就領洗，但我在她的生活見證中我知道有神，大學時我參加了光啟社，和我的同學慧麗（後來成為我的妻子）一同聆聽聖經的道理，並同時在聖誕節受洗。曾有人問我宗教信仰和科學研究的工作是否有所衝突，我要說，事實上，信仰才是推動我參與科學研究的動力，對許多事的考量才能更脫俗，才更有創見。」賀培銘教授堅信信仰是他一生最對的選擇，也是最大的祝福。</span></p>
+</blockquote><p><img src="https://i.imgur.com/wyUU4Fi.png" alt="" loading="lazy"><br>
+<span>(圖自總統府新聞 秘書長代表總統接見第43屆十大傑出青年當選人)</span></p><h3 id="弦論" data-id="弦論"><a class="anchor hidden-xs" href="#弦論" title="弦論"><span class="octicon octicon-link"></span></a><span>弦論</span></h3><p><span>(對不起我沒時間整理</span><img class="emoji" alt=":sob:" src="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/images/basic/sob.png"><span>)</span><br>
+<a href="https://web.mit.edu/yenjie/www/lm/physics/physicstitle.htm" target="_blank" rel="noopener"><span>光與物質小站(點領域介紹)</span></a><br>
+<a href="https://spacetime.phys.tw/#28" target="_blank" rel="noopener"><span>系刊28 弦論?玄論?</span></a><br>
+<a href="https://spacetime.phys.tw/#29" target="_blank" rel="noopener"><span>系刊29 小天使與弦</span></a><br>
+<a href="https://www.youtube.com/watch?v=Yrx0tPUjfrQ" target="_blank" rel="noopener"><span>youtube台大理論中心賀培銘教授專訪</span></a></p><h3 id="資料出處" data-id="資料出處"><a class="anchor hidden-xs" href="#資料出處" title="資料出處"><span class="octicon octicon-link"></span></a><span>資料出處</span></h3><p><a href="https://lecospa.ntu.edu.tw/person/pei-ming-ho/" target="_blank" rel="noopener"><span>Biography in Leung Center for Cosmology and Particle Astrophysics website</span></a><br>
+<span>臺大教學傑出教師的故事12</span><a href="https://www.dlc.ntu.edu.tw/wp-content/uploads/2020/10/1205%E8%B3%80%E5%9F%B9%E9%8A%98%E8%80%81%E5%B8%AB.pdf" target="_blank" rel="noopener"><span>賀培銘1</span></a><br>
+<span>臺大教學傑出教師的故事3</span><a href="https://www.airitibooks.com/pdfViewer/index.aspx?PublicationID=P20140418196&amp;GoToPage=32" target="_blank" rel="noopener"><span>賀培銘2</span></a><br>
+<a href="https://urschool.org/shop/search?query=%E8%B3%80%E5%9F%B9%E9%8A%98" target="_blank" rel="noopener"><span>urschool評價</span></a><br>
+<a href="https://blog.xuite.net/gracehu812/twblog/140211834" target="_blank" rel="noopener"><span>blog 第四十三屆十大傑出青年之基督徒四傑的故事</span></a><br>
+<a href="https://www.president.gov.tw/NEWS/10053" target="_blank" rel="noopener"><span>新聞 第四十三屆十大傑出青年</span></a><br>
+<a href="https://web.mit.edu/yenjie/www/lm/physics/physicstitle.htm" target="_blank" rel="noopener"><span>光與物質小站</span></a><br>
+<a href="https://spacetime.phys.tw/#28" target="_blank" rel="noopener"><span>系刊28 弦論?玄論?</span></a><br>
+<a href="https://spacetime.phys.tw/#29" target="_blank" rel="noopener"><span>系刊29 小天使與弦</span></a></p><p><span>沒用到:</span><br>
+<a href="https://www.youtube.com/watch?v=Yrx0tPUjfrQ" target="_blank" rel="noopener"><span>youtube台大理論中心賀培銘教授專訪</span></a><br>
+<a href="https://www.youtube.com/watch?v=DCQAQforYAY" target="_blank" rel="noopener"><span>youyube探索講座 人人都可懂的量子電動力學/賀培銘教授</span></a><br>
+<a href="https://www.scimonth.com.tw/archives/302" target="_blank" rel="noopener"><span>科學月刊 廣義相對論— 彎曲的空間 vs 彎曲的時空</span></a><br>
+<a href="https://sa.ylib.com/MagArticle.aspx?id=3435" target="_blank" rel="noopener"><span>科學人 多重宇宙的多重觀點</span></a><br>
+<a href="https://www.eslite.com/product/1001130752746240" target="_blank" rel="noopener"><span>曾為科普書作導讀與審定</span></a></p><h2 id="訪綱：" data-id="訪綱："><a class="anchor hidden-xs" href="#訪綱：" title="訪綱："><span class="octicon octicon-link"></span></a><span>訪綱：</span></h2><h3 id="教授簡介" data-id="教授簡介"><a class="anchor hidden-xs" href="#教授簡介" title="教授簡介"><span class="octicon octicon-link"></span></a><span>教授簡介</span></h3><h3 id="關於弦論" data-id="關於弦論"><a class="anchor hidden-xs" href="#關於弦論" title="關於弦論"><span class="octicon octicon-link"></span></a><span>關於弦論</span></h3><ol>
+<li><span>可以先請老師用淺顯易懂的方式講一下弦論是什麼嗎？</span></li>
+<li><span>粒子變成線，最重要的差別是什麼？</span></li>
+<li><span>如果粒子真的是線，我們現存的物理定律會有什麼改變？</span></li>
+<li><span>如果要用實驗證明弦論，最重要的是要證明哪一點（要從哪裡下手）？老師對於如何證明有什麼想法嗎？（還是老師完全專注於理論）</span></li>
+<li><span>可以舉幾個弦論對稱性的例子嗎？</span></li>
+<li><span>現在很多大眾媒體把弦論和平行宇宙放在一起討論，也有很多電影在多重宇宙上大作文章（例如漫威），導致大眾好像覺得物理學家就是在解決這類型的問題，老師對此有什麼看法？</span></li>
+<li><span>老師覺得我們距離完整了解宇宙（例如找到萬有理論）還要多久？目前最大的阻礙是什麼？</span></li>
+</ol><h3 id="做理論" data-id="做理論"><a class="anchor hidden-xs" href="#做理論" title="做理論"><span class="octicon octicon-link"></span></a><span>做理論</span></h3><ol>
+<li><span>做理論的日常大概長什麼樣子？都在推導證明公式還是也會寫code?</span></li>
+<li><span>一個新理論的誕生需要很異想天開的靈感，就像弦論把粒子當線真的是很大膽、很難想到的猜測，這種「腦洞大開」的思考模式是可以訓練出來的嗎？要如何培養？</span></li>
+<li><span>老師有突然靈光乍現的故事嗎？</span></li>
+<li><span>老師覺得怎麼樣的人適合做理論？</span></li>
+<li><span>有特別喜歡、特別崇拜的物理學家嗎？</span></li>
+</ol><h3 id="研究之路的困難與瓶頸" data-id="研究之路的困難與瓶頸"><a class="anchor hidden-xs" href="#研究之路的困難與瓶頸" title="研究之路的困難與瓶頸"><span class="octicon octicon-link"></span></a><span>研究之路的困難與瓶頸</span></h3><ol>
+<li><span>老師之前有在訪談說弦論，或甚至是理論物理，市場需求（工作缺）沒有很多，那老師當初決定做理論內心有掙扎嗎？</span></li>
+<li><span>老師在研究過程中遇到的最大瓶頸是什麼？是如何克服的？</span></li>
+<li><span>如果有時候真的沒想法，老師會去做什麼其他事情？</span></li>
+</ol><h3 id="教學" data-id="教學"><a class="anchor hidden-xs" href="#教學" title="教學"><span class="octicon octicon-link"></span></a><span>教學</span></h3><ol>
+<li><span>想問老師為什麼不收學生？</span></li>
+<li><span>為什麼回台大當教授？國外做理論物理、做弦論的人不是比較多，會有比較多知音嗎？</span></li>
+<li><span>老師笑話從哪來？為什麼愛講笑話？有嘗試在非物理圈子講物理笑話嗎？</span></li>
+</ol><h3 id="結尾" data-id="結尾"><a class="anchor hidden-xs" href="#結尾" title="結尾"><span class="octicon octicon-link"></span></a><span>結尾</span></h3><p><span>請老師講一個最近覺得最厲害的笑話</span></p><h2 id="訪綱王弘禹" data-id="訪綱王弘禹"><a class="anchor hidden-xs" href="#訪綱王弘禹" title="訪綱王弘禹"><span class="octicon octicon-link"></span></a><span>訪綱(王弘禹)</span></h2><h3 id="純物理內容" data-id="純物理內容"><a class="anchor hidden-xs" href="#純物理內容" title="純物理內容"><span class="octicon octicon-link"></span></a><span>純物理內容</span></h3><h4 id="背景資訊" data-id="背景資訊"><a class="anchor hidden-xs" href="#背景資訊" title="背景資訊"><span class="octicon octicon-link"></span></a><span>背景資訊</span></h4><p><span>老師在一個月前，有到中研院給一個通俗演講「黑洞訊息悖論和有效場論」，所以感覺能直接問這相關的問題。</span></p><h4 id="問題" data-id="問題"><a class="anchor hidden-xs" href="#問題" title="問題"><span class="octicon octicon-link"></span></a><span>問題</span></h4><ol>
+<li><span>想請問老師這兩年在做什麼樣的研究？</span>
+<ul>
+<li><span>能不能跟我們簡單介紹黑洞訊息悖論？</span></li>
+</ul>
+</li>
+</ol><h3 id="留學生活" data-id="留學生活"><a class="anchor hidden-xs" href="#留學生活" title="留學生活"><span class="octicon octicon-link"></span></a><span>留學生活</span></h3><ol>
+<li><span>人際互動</span>
+<ul>
+<li><span>怎麼交到第一個外國朋友</span></li>
+</ul>
+</li>
+<li><span>學習上</span>
+<ul>
+<li><span>好奇老師那時候，會跟指導教授聊什麼？</span></li>
+<li><span>一天的時間規劃</span></li>
+<li><span>沒有上到Jackson的電動力學</span>
+<ul>
+<li><span>那邊上課的感覺跟台大有什麼差</span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span>文化差異</span>
+<ul>
+<li><span>Culture Shock?</span></li>
+</ul>
+</li>
+</ol><h3 id="學術研究日常" data-id="學術研究日常"><a class="anchor hidden-xs" href="#學術研究日常" title="學術研究日常"><span class="octicon octicon-link"></span></a><span>學術研究日常</span></h3><ol>
+<li><span>費爾茲獎只頒給40歲以下的人，有名、研究量子力學的物理學家也都在很年輕的時候，取得巨大突破。想請問老師，在研究這方面，有覺得年紀真的會對人產生影響嗎？</span></li>
+<li><span>平常在做什麼？喜歡怎樣的休閒娛樂…</span></li>
+<li><span>(Optional)教授在台大理論中心的專訪有提到，原本博士是做量子群，在畢業的時候，指導教授建議你可以去做弦論的研究，因為弦論的領域有突破性的進展，叫做弦論的第二次革命。想請問教授，現在也有領域像當時的弦論一樣，在近期取大進展嗎？</span></li>
+</ol><h3 id="比較隨意的話題" data-id="比較隨意的話題"><a class="anchor hidden-xs" href="#比較隨意的話題" title="比較隨意的話題"><span class="octicon octicon-link"></span></a><span>比較隨意的話題</span></h3><ol>
+<li><span>老師，請問如果是你會參加曼哈頓計畫嗎？</span></li>
+<li><span>獲得十大傑出青年的感覺，當時領獎的細節、故事…</span></li>
+</ol><p><span>剩下就靠臨場自由發揮，我希望把時間專注在上面這些話題。</span></p><h2 id="寄給小賀的部分：" data-id="寄給小賀的部分："><a class="anchor hidden-xs" href="#寄給小賀的部分：" title="寄給小賀的部分："><span class="octicon octicon-link"></span></a><span>寄給小賀的部分：</span></h2><h3 id="請老師用幾句話講一下弦論" data-id="請老師用幾句話講一下弦論"><a class="anchor hidden-xs" href="#請老師用幾句話講一下弦論" title="請老師用幾句話講一下弦論"><span class="octicon octicon-link"></span></a><span>請老師用幾句話講一下弦論</span></h3><ol>
+<li><span>粒子變成線，最重要的差別是什麼？</span></li>
+</ol><h3 id="弦論遇到的瓶頸" data-id="弦論遇到的瓶頸"><a class="anchor hidden-xs" href="#弦論遇到的瓶頸" title="弦論遇到的瓶頸"><span class="octicon octicon-link"></span></a><span>弦論遇到的瓶頸</span></h3><ol>
+<li><span>找不到超對稱證據，老師對於這些瓶頸有什麼看法？（</span><a href="https://sa.ylib.com/MagArticle.aspx?id=2443%EF%BC%89" target="_blank" rel="noopener"><span>https://sa.ylib.com/MagArticle.aspx?id=2443）</span></a>
+<ul>
+<li><span>數十年來，物理學家一直醉心於超對稱這個美麗的理論，並相信超對稱能夠引領他們對於量子世界有更深刻的理解。現在他們來到了十字路口：如果不能在未來幾年內證明超對稱是正確的，就得面對劃時代的典範轉移。</span></li>
+</ul>
+</li>
+<li><span>老師對於弦論的未來發展有什麼想法？</span></li>
+</ol><h3 id="老師最近的黑洞訊息悖論研究" data-id="老師最近的黑洞訊息悖論研究"><a class="anchor hidden-xs" href="#老師最近的黑洞訊息悖論研究" title="老師最近的黑洞訊息悖論研究"><span class="octicon octicon-link"></span></a><span>老師最近的黑洞訊息悖論研究</span></h3><ol>
+<li><span>想請問老師這兩年在做什麼樣的研究？</span></li>
+<li><span>能不能跟我們簡單介紹黑洞訊息悖論？</span></li>
+</ol><h3 id="理論物理學家的一天" data-id="理論物理學家的一天"><a class="anchor hidden-xs" href="#理論物理學家的一天" title="理論物理學家的一天"><span class="octicon octicon-link"></span></a><span>理論物理學家的一天</span></h3><ol>
+<li><span>做理論的日常大概長什麼樣子？都在推導證明公式還是也會寫code?</span></li>
+<li><span>費爾茲獎只頒給40歲以下的人，有名、研究量子力學的物理學家也都在很年輕的時候，取得巨大突破。想請問老師，在研究這方面，有覺得年紀真的會對物理學家產生影響嗎？</span></li>
+<li><span>Office hour大家時常問老師的問題，以及老師你通常的回應是什麼?</span></li>
+<li><span>如果有時候真的沒想法，老師會去做什麼其他事情？</span></li>
+<li><span>老師在研究過程中遇到的最大瓶頸是什麼？是如何克服的？</span></li>
+</ol><h3 id="收尾" data-id="收尾"><a class="anchor hidden-xs" href="#收尾" title="收尾"><span class="octicon octicon-link"></span></a><span>收尾</span></h3><ol>
+<li><span>老師，請問如果是你會參加曼哈頓計畫嗎？</span></li>
+<li><span>請老師講一個最近覺得最厲害的笑話</span></li>
+</ol><h3 id="問題列表" data-id="問題列表"><a class="anchor hidden-xs" href="#問題列表" title="問題列表"><span class="octicon octicon-link"></span></a><span>問題列表</span></h3><ol>
+<li><span>為什麼回台大當教授？國外做理論物理、做弦論的人不是比較多，會有比較多知音嗎？</span></li>
+<li><span>(Optional)教授在台大理論中心的專訪有提到，原本博士是做量子群，在畢業的時候，指導教授建議你可以去做弦論的研究，因為弦論的領域有突破性的進展，叫做弦論的第二次革命。想請問教授，現在也有領域像當時的弦論一樣，在近期取大進展嗎？</span></li>
+<li><span>平常在做什麼？喜歡怎樣的休閒娛樂…</span></li>
+</ol></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li><a href="#小賀問題" title="小賀問題">小賀問題</a><ul class="nav">
+<li class="invisable-node"><ul class="nav">
+<li><a href="#基本資料" title="基本資料">基本資料</a></li>
+<li><a href="#事蹟" title="事蹟">事蹟</a></li>
+<li><a href="#弦論" title="弦論">弦論</a></li>
+<li><a href="#資料出處" title="資料出處">資料出處</a></li>
+</ul>
+</li>
+<li><a href="#訪綱：" title="訪綱：">訪綱：</a><ul class="nav">
+<li><a href="#教授簡介" title="教授簡介">教授簡介</a></li>
+<li><a href="#關於弦論" title="關於弦論">關於弦論</a></li>
+<li><a href="#做理論" title="做理論">做理論</a></li>
+<li><a href="#研究之路的困難與瓶頸" title="研究之路的困難與瓶頸">研究之路的困難與瓶頸</a></li>
+<li><a href="#教學" title="教學">教學</a></li>
+<li><a href="#結尾" title="結尾">結尾</a></li>
+</ul>
+</li>
+<li><a href="#訪綱王弘禹" title="訪綱(王弘禹)">訪綱(王弘禹)</a><ul class="nav">
+<li><a href="#純物理內容" title="純物理內容">純物理內容</a></li>
+<li><a href="#留學生活" title="留學生活">留學生活</a></li>
+<li><a href="#學術研究日常" title="學術研究日常">學術研究日常</a></li>
+<li><a href="#比較隨意的話題" title="比較隨意的話題">比較隨意的話題</a></li>
+</ul>
+</li>
+<li><a href="#寄給小賀的部分：" title="寄給小賀的部分：">寄給小賀的部分：</a><ul class="nav">
+<li><a href="#請老師用幾句話講一下弦論" title="請老師用幾句話講一下弦論">請老師用幾句話講一下弦論</a></li>
+<li><a href="#弦論遇到的瓶頸" title="弦論遇到的瓶頸">弦論遇到的瓶頸</a></li>
+<li><a href="#老師最近的黑洞訊息悖論研究" title="老師最近的黑洞訊息悖論研究">老師最近的黑洞訊息悖論研究</a></li>
+<li><a href="#理論物理學家的一天" title="理論物理學家的一天">理論物理學家的一天</a></li>
+<li><a href="#收尾" title="收尾">收尾</a></li>
+<li><a href="#問題列表" title="問題列表">問題列表</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
+        <div class="toc"><ul class="nav">
+<li><a href="#小賀問題" title="小賀問題">小賀問題</a><ul class="nav">
+<li class="invisable-node"><ul class="nav">
+<li><a href="#基本資料" title="基本資料">基本資料</a></li>
+<li><a href="#事蹟" title="事蹟">事蹟</a></li>
+<li><a href="#弦論" title="弦論">弦論</a></li>
+<li><a href="#資料出處" title="資料出處">資料出處</a></li>
+</ul>
+</li>
+<li><a href="#訪綱：" title="訪綱：">訪綱：</a><ul class="nav">
+<li><a href="#教授簡介" title="教授簡介">教授簡介</a></li>
+<li><a href="#關於弦論" title="關於弦論">關於弦論</a></li>
+<li><a href="#做理論" title="做理論">做理論</a></li>
+<li><a href="#研究之路的困難與瓶頸" title="研究之路的困難與瓶頸">研究之路的困難與瓶頸</a></li>
+<li><a href="#教學" title="教學">教學</a></li>
+<li><a href="#結尾" title="結尾">結尾</a></li>
+</ul>
+</li>
+<li><a href="#訪綱王弘禹" title="訪綱(王弘禹)">訪綱(王弘禹)</a><ul class="nav">
+<li><a href="#純物理內容" title="純物理內容">純物理內容</a></li>
+<li><a href="#留學生活" title="留學生活">留學生活</a></li>
+<li><a href="#學術研究日常" title="學術研究日常">學術研究日常</a></li>
+<li><a href="#比較隨意的話題" title="比較隨意的話題">比較隨意的話題</a></li>
+</ul>
+</li>
+<li><a href="#寄給小賀的部分：" title="寄給小賀的部分：">寄給小賀的部分：</a><ul class="nav">
+<li><a href="#請老師用幾句話講一下弦論" title="請老師用幾句話講一下弦論">請老師用幾句話講一下弦論</a></li>
+<li><a href="#弦論遇到的瓶頸" title="弦論遇到的瓶頸">弦論遇到的瓶頸</a></li>
+<li><a href="#老師最近的黑洞訊息悖論研究" title="老師最近的黑洞訊息悖論研究">老師最近的黑洞訊息悖論研究</a></li>
+<li><a href="#理論物理學家的一天" title="理論物理學家的一天">理論物理學家的一天</a></li>
+<li><a href="#收尾" title="收尾">收尾</a></li>
+<li><a href="#問題列表" title="問題列表">問題列表</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>
